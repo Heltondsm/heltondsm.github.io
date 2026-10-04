@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helton Dos Santos Moreira · Data Analyst Power BI, SQL, Python · Île-de-France</title>
+<meta name="description" content="Data Analyst en Île-de-France : je résous des problèmes métier avec les données. Tableaux de bord Power BI, SQL, Python, KPI, reporting et qualité des données, pour aider une direction à décider.">
+<meta property="og:title" content="Helton Dos Santos Moreira · Data Analyst">
+<meta property="og:description" content="Je résous des problèmes métier avec les données : Power BI, SQL, Python, KPI et reporting. Cinq études de cas, du problème à la décision.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://heltondsm.github.io/img/apercu.jpg">
+<meta property="og:url" content="https://heltondsm.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://heltondsm.github.io/">
+<link rel="icon" type="image/png" href="img/icone.png">
+<link rel="apple-touch-icon" href="img/icone.png">
+<meta name="author" content="Helton Dos Santos Moreira">
+<link rel="stylesheet" href="fonts/polices.css">
+<style>
+:root{
+  --bleu:#376DAE; --bleu-fonce:#2A5A94; --bleu-clair:#DCE8F6; --bleu-ciel:#8FB6E6;
+  --marine:#16192A; --marine-2:#1F2338;
+  --fond:#F4F7FB; --texte:#1A1F2E; --gris:#5E6A7E; --ligne:#E2E8F0;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --titre:"Gambetta",Georgia,serif; --ui:"General Sans",-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fond);color:var(--texte);font-family:var(--ui);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+.page{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* ---------- barre ---------- */
+nav{position:fixed;inset:0 0 auto 0;z-index:30;transition:background .3s,box-shadow .3s}
+nav.pleine{background:rgba(22,25,42,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+nav .page{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.marque{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--titre);font-weight:600;font-size:16px}
+.marque img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.6)}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav ul a{color:rgba(255,255,255,.82);text-decoration:none;font-size:15px;font-weight:500;position:relative}
+nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+nav ul a:hover::after{transform:scaleX(1)}
+.progression{position:absolute;left:0;bottom:0;height:2px;background:var(--bleu-ciel);width:0}
+
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15.5px;font-family:var(--titre);transition:transform .2s var(--ease),box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(22,25,42,.25)}
+.btn.blanc{background:#fff;color:var(--marine)}
+.btn.marine{background:var(--marine);color:#fff}
+.btn.contour{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+nav .btn{padding:9px 16px;font-size:14px}
+
+/* ---------- héros ---------- */
+.heros{background:var(--bleu);color:#fff;position:relative;overflow:hidden}
+.halo{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none}
+.halo.a{width:520px;height:520px;background:#5A8ED0;top:-160px;left:-120px;animation:flotte 16s ease-in-out infinite}
+.halo.b{width:420px;height:420px;background:#2A5A94;bottom:-180px;right:24%;animation:flotte 20s ease-in-out infinite reverse}
+@keyframes flotte{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,40px)}}
+.grille-fond{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.2px,transparent 1.2px);background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 55%);mask-image:linear-gradient(90deg,#000 0%,transparent 55%)}
+.heros .page{position:relative;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:20px;min-height:660px;padding-top:68px}
+.heros .gauche{padding:64px 0 84px}
+.ouvert{display:inline-flex;align-items:center;gap:9px;background:rgba(22,25,42,.28);padding:7px 14px;border-radius:30px;font-size:14px;font-weight:500;margin-bottom:24px}
+.ouvert i{width:9px;height:9px;border-radius:50%;background:#7CF0A9;animation:pouls 2s infinite}
+@keyframes pouls{0%{box-shadow:0 0 0 0 rgba(124,240,169,.6)}70%{box-shadow:0 0 0 10px rgba(124,240,169,0)}100%{box-shadow:0 0 0 0 rgba(124,240,169,0)}}
+.heros h1{font-family:var(--titre);font-size:clamp(42px,6.2vw,82px);line-height:1.02;margin:0 0 14px;font-weight:700}
+.heros h1 .mot{display:inline-block;overflow:hidden;vertical-align:bottom}
+.heros h1 .mot span{display:inline-block;transform:translateY(105%);animation:monte .9s var(--ease) forwards}
+@keyframes monte{to{transform:translateY(0)}}
+.apparait{opacity:0;transform:translateY(18px);animation:apparait .8s var(--ease) forwards}
+@keyframes apparait{to{opacity:1;transform:none}}
+.heros .metier{font-family:var(--titre);font-size:clamp(20px,2.2vw,26px);font-weight:600;margin:0 0 22px;color:var(--bleu-clair)}
+.metier .tourne{display:inline-block;color:#fff;border-bottom:3px solid var(--bleu-ciel)}
+.heros .profil{font-size:18.5px;max-width:570px;margin:0 0 32px;color:#F1F5FB}
+.heros .boutons{display:flex;flex-wrap:wrap;gap:12px}
+.photo{align-self:end;position:relative}
+.photo img{display:block;width:100%;max-width:500px;margin:0 auto;height:auto;animation:respire 9s ease-in-out infinite;transform-origin:bottom center;filter:drop-shadow(0 20px 40px rgba(10,20,45,.25))}
+@keyframes respire{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+.photo .aura{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;left:50%;top:6%;transform:translateX(-50%);background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.22),rgba(255,255,255,.06) 55%,transparent 70%)}
+.photo img{position:relative;-webkit-mask-image:linear-gradient(90deg,#000 80%,transparent 99%);mask-image:linear-gradient(90deg,#000 80%,transparent 99%)}
+.bulle{position:absolute;background:#fff;color:var(--marine);border-radius:14px;padding:12px 16px;box-shadow:0 18px 40px rgba(22,25,42,.28);font-size:13.5px;line-height:1.35;z-index:2;animation:bulle 6s ease-in-out infinite}
+.bulle b{display:block;font-family:var(--titre);font-size:23px;color:var(--bleu)}
+.bulle.un{left:0;top:32%}
+.bulle.deux{right:0;bottom:22%;animation-delay:-3s}
+@keyframes bulle{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ---------- bande d'outils ---------- */
+.bande{background:var(--marine);color:#fff;overflow:hidden;white-space:nowrap;padding:20px 0}
+.bande .piste{display:inline-block;animation:defile 34s linear infinite;font-family:var(--titre);font-weight:600;font-size:20px}
+.bande .piste span{margin:0 26px;opacity:.9}
+.bande .piste i{font-style:normal;color:var(--bleu-ciel)}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:104px 0 0}
+.surtitre{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--bleu);font-weight:600;margin:0 0 10px}
+h2{font-family:var(--titre);font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 14px;color:var(--marine);font-weight:700}
+.intro{color:var(--gris);max-width:680px;margin:0 0 44px;font-size:17.5px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.vu{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* en 30 secondes */
+.trente{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.carte{background:#fff;border:1px solid var(--ligne);border-radius:18px;padding:30px 28px;transition:transform .35s var(--ease),box-shadow .35s}
+.carte:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(22,25,42,.10)}
+.carte .num{font-family:var(--titre);font-weight:700;font-size:15px;color:#fff;background:var(--bleu);width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.carte h3{font-family:var(--titre);font-size:21px;margin:0 0 10px;color:var(--marine)}
+.carte p{margin:0;color:#3B4558;font-size:16px}
+.carte b{color:var(--marine)}
+.chiffres{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
+.chiffre{background:var(--bleu);color:#fff;border-radius:18px;padding:26px 24px;position:relative;overflow:hidden}
+.chiffre:nth-child(2n){background:var(--marine)}
+.chiffre::before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;right:-50px;top:-50px;background:rgba(255,255,255,.07)}
+.chiffre b{display:block;font-family:var(--titre);font-size:clamp(34px,3.4vw,46px);line-height:1;font-weight:700;margin-bottom:8px;white-space:nowrap}
+.chiffre span{font-size:15px;color:#E3ECF8}
+
+/* ---------- études de cas ---------- */
+.etude{background:#fff;border:1px solid var(--ligne);border-radius:24px;padding:42px;margin-bottom:30px}
+.etude.vedette{background:var(--marine);border-color:var(--marine);color:#fff}
+.etude .haut{display:grid;grid-template-columns:.95fr 1.05fr;gap:46px;align-items:start}
+.etude .haut>*{min-width:0}
+.etude.inverse .haut{grid-template-columns:1.05fr .95fr}
+.etude.inverse .visuel{order:-1}
+.badge{display:inline-block;background:var(--bleu-ciel);color:var(--marine);font-family:var(--titre);font-weight:700;font-size:12px;letter-spacing:.08em;padding:5px 11px;border-radius:30px;margin-bottom:14px}
+.tag{display:block;font-family:var(--titre);font-weight:700;font-size:13px;color:var(--bleu);margin-bottom:10px;letter-spacing:.05em}
+.etude.vedette .tag{color:var(--bleu-ciel)}
+.etude h3{font-family:var(--titre);font-size:clamp(24px,2.4vw,32px);line-height:1.18;margin:0 0 16px;color:var(--marine)}
+.etude.vedette h3{color:#fff}
+.etape-titre{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);font-weight:600;margin:0 0 6px}
+.etude.vedette .etape-titre{color:#8FA6C9}
+.question{margin:0 0 20px;color:#2B3446}
+.etude.vedette .question{color:#D9E2EF}
+.points{list-style:none;padding:0;margin:0 0 4px}
+.points li{position:relative;padding:7px 0 7px 30px;font-size:15.8px;color:#2B3446}
+.etude.vedette .points li{color:#E1E8F3}
+.points li::before{content:"";position:absolute;left:0;top:12px;width:18px;height:18px;border-radius:5px;background:var(--bleu-clair)}
+.points li::after{content:"";position:absolute;left:6px;top:15px;width:5px;height:9px;border:solid var(--bleu);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.etude.vedette .points li::before{background:rgba(143,182,230,.18)}
+.etude.vedette .points li::after{border-color:var(--bleu-ciel)}
+.resultat{margin-top:30px;border-radius:18px;background:var(--fond);padding:24px 28px;display:grid;grid-template-columns:auto 1fr auto;gap:26px;align-items:center}
+.etude.vedette .resultat{background:#24365A}
+.resultat .etiquette{font-family:var(--titre);font-weight:700;font-size:13px;letter-spacing:.12em;color:#fff;background:var(--bleu);padding:8px 14px;border-radius:10px;white-space:nowrap}
+.resultat p{margin:0;font-size:16.5px;color:var(--marine)}
+.etude.vedette .resultat p{color:#fff}
+.resultat p b{font-family:var(--ui);font-weight:700}
+.resultat .liens{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.outils{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.outils span{font-size:12.5px;font-weight:600;background:#fff;border:1px solid var(--ligne);color:var(--marine);padding:4px 10px;border-radius:8px}
+.etude.vedette .outils span{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#fff}
+.lien{font-family:var(--titre);font-weight:600;color:var(--bleu);text-decoration:none;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.etude.vedette .lien{color:var(--bleu-ciel)}
+.lien span{transition:transform .25s var(--ease)}
+.lien:hover span{transform:translateX(5px)}
+
+/* galerie */
+.galerie{background:var(--bleu);border-radius:18px;padding:16px 16px 14px;position:relative;margin:0}
+.etude.vedette .galerie{background:#24365A}
+.ecran{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 18px 38px rgba(10,13,25,.3)}
+.ecran img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(1.04);transition:opacity .9s ease,transform 4.5s ease}
+.ecran img.actif{opacity:1;transform:scale(1)}
+.ecran.noir{background:#000}
+.legende{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;color:#E3ECF8;font-size:13.5px;min-height:34px}
+.points-g{display:flex;gap:6px;flex-shrink:0}
+.points-g button{width:26px;height:4px;border-radius:4px;border:none;background:rgba(255,255,255,.3);cursor:pointer;padding:0;position:relative;overflow:hidden}
+.points-g button.actif::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;animation:remplit var(--duree,4.5s) linear forwards}
+.galerie.pause .points-g button.actif::after{animation-play-state:paused}
+@keyframes remplit{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* tableau de résultats de l'audit */
+.tableau-audit{background:var(--marine);border-radius:18px;padding:22px;color:#fff}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kpi{background:#1F2B47;border-radius:14px;padding:18px 18px 16px}
+.kpi b{display:block;font-family:var(--titre);font-size:34px;line-height:1.05;font-weight:700;white-space:nowrap}
+.kpi b.rouge{color:#FF8A80}
+.kpi span{font-size:13.8px;color:#AFC0DA}
+.code{margin-top:12px;background:#0E1220;border-radius:14px;overflow:hidden;font-family:"JetBrains Mono",Menlo,monospace;font-size:13px}
+.code .barre{display:flex;gap:6px;padding:10px 14px;background:#151A2B}
+.code .barre i{width:9px;height:9px;border-radius:50%;background:#2E3650}
+.code .barre em{font-style:normal;color:#6E7A96;font-size:12px;margin-left:8px}
+.code pre{margin:0;padding:14px 16px;color:#D8DEEA;white-space:pre-wrap;line-height:1.55}
+.code .c{color:#6E7A96}.code .k{color:#8FB6E6}.code .s{color:#B5E28C}.code .r{color:#FFCB6B}
+
+/* tuiles des pipelines */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pipe{background:#fff;border:1px solid var(--ligne);border-radius:22px;padding:30px}
+.pipe h3{font-family:var(--titre);font-size:22px;margin:0 0 10px;color:var(--marine);line-height:1.25}
+.pipe p{margin:0 0 18px;color:#3B4558;font-size:15.8px}
+.pipe .ecran{aspect-ratio:auto;margin-bottom:18px}
+.pipe .ecran img{position:static;opacity:1;transform:none}
+.tuiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.tuile{background:var(--fond);border-radius:14px;padding:18px}
+.tuile b{display:block;font-family:var(--titre);font-size:34px;line-height:1;font-weight:700;color:var(--marine);margin-bottom:6px}
+.tuile span{font-size:14px;color:var(--gris)}
+.tuile.forte{background:var(--bleu)}
+.tuile.forte b{color:#fff}.tuile.forte span{color:#E3ECF8}
+
+/* autres projets */
+.petits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.petit{background:#fff;border:1px solid var(--ligne);border-radius:18px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color .25s,transform .3s var(--ease),box-shadow .3s}
+.petit:hover{border-color:var(--bleu);transform:translateY(-6px);box-shadow:0 18px 36px rgba(22,25,42,.10)}
+.petit .vignette{aspect-ratio:16/10;background:#fff;border-bottom:1px solid var(--ligne);overflow:hidden}
+.petit .vignette img{width:100%;height:100%;object-fit:contain;transition:transform .6s var(--ease)}
+.petit:hover .vignette img{transform:scale(1.05)}
+.petit .corps{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.petit h3{font-family:var(--titre);font-size:17px;margin:0 0 8px;color:var(--marine);line-height:1.3}
+.petit p{margin:0 0 12px;color:#3B4558;font-size:14.8px;flex:1}
+.petit .fl{font-family:var(--titre);font-weight:600;color:var(--bleu);font-size:14px}
+
+/* parcours */
+.parcours{position:relative;padding-left:34px}
+.parcours::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--bleu-clair)}
+.parcours .trait{position:absolute;left:9px;top:8px;width:2px;height:0;background:var(--bleu);transition:height 1.6s var(--ease)}
+.parcours.vu .trait{height:calc(100% - 16px)}
+.poste{position:relative;background:#fff;border:1px solid var(--ligne);border-radius:18px;padding:24px 28px;margin-bottom:16px;display:grid;grid-template-columns:210px 1fr;gap:24px}
+.poste::before{content:"";position:absolute;left:-31px;top:30px;width:14px;height:14px;border-radius:50%;background:var(--bleu);box-shadow:0 0 0 4px var(--fond)}
+.poste .date{font-family:var(--titre);font-weight:600;color:var(--bleu);font-size:15px}
+.poste .lieu{color:var(--gris);font-size:14.5px}
+.poste h3{font-family:var(--titre);font-size:19px;margin:0 0 8px;color:var(--marine)}
+.poste ul{margin:0;padding-left:18px}
+.poste li{font-size:15.6px;color:#3B4558;margin-bottom:4px}
+.poste li b{color:var(--marine);font-weight:600}
+
+/* compétences */
+.competences{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.bloc{background:#fff;border:1px solid var(--ligne);border-radius:18px;padding:24px}
+.bloc h3{font-family:var(--titre);font-size:16px;margin:0 0 14px;color:var(--marine)}
+.puces{display:flex;flex-wrap:wrap;gap:8px}
+.puces span{font-size:14px;background:var(--bleu-clair);color:var(--bleu-fonce);padding:5px 11px;border-radius:8px;font-weight:600;transition:background .2s,color .2s}
+.puces span:hover{background:var(--bleu);color:#fff}
+
+/* contact */
+.contact{margin-top:110px;background:var(--marine);color:#fff;padding:90px 0 40px;position:relative;overflow:hidden}
+.contact .halo.c{width:460px;height:460px;background:#2A5A94;right:-120px;top:-160px;opacity:.5;animation:flotte 18s ease-in-out infinite}
+.contact .page{position:relative}
+.contact .grille{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+.contact .rond{width:170px;height:170px;border-radius:50%;overflow:hidden;border:5px solid var(--bleu)}
+.contact .rond img{width:100%;height:100%;object-fit:cover;display:block}
+.contact h2{color:#fff;margin-bottom:12px}
+.contact p{color:#C6D3E8;margin:0 0 26px;max-width:620px;font-size:18px}
+.contact .boutons{display:flex;flex-wrap:wrap;gap:12px}
+.pied{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.08);margin-top:70px;padding-top:24px;color:#7F8FAA;font-size:14px}
+
+@media (max-width:980px){
+  nav ul{display:none}
+  .page{padding:0 20px}
+  .heros .page{grid-template-columns:1fr;min-height:0;gap:0}
+  .heros .gauche{padding:40px 0 10px}
+  .photo img{max-width:340px;margin:0 auto}
+  .bulle{display:none}
+  section{padding-top:76px}
+  .trente{grid-template-columns:1fr}
+  .chiffres{grid-template-columns:1fr 1fr}
+  .etude{padding:24px}
+  .etude .haut,.etude.inverse .haut{grid-template-columns:1fr;gap:26px}
+  .etude.inverse .visuel{order:0}
+  .resultat{grid-template-columns:1fr;gap:14px}
+  .resultat .liens{align-items:flex-start}
+  .outils{justify-content:flex-start}
+  .duo{grid-template-columns:1fr}
+  .petits{grid-template-columns:1fr 1fr}
+  .poste{grid-template-columns:1fr;gap:6px}
+  .competences{grid-template-columns:1fr 1fr}
+  .contact .grille{grid-template-columns:1fr;gap:26px}
+  .contact .rond{width:120px;height:120px}
+}
+@media (max-width:560px){.competences,.chiffres,.petits,.kpis{grid-template-columns:1fr}.marque span{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.apparait{opacity:1;transform:none}
+  .heros h1 .mot span{transform:none}
+}
+/* l'interface reste en Public Sans, les titres et les chiffres en Fraunces */
+.btn,.tag,.badge,.etiquette,.lien,.fl,.marque,.bande .piste,.etape-titre,.carte .num,.poste .date,.metier,.outils span,.puces span{font-family:var(--ui)!important}
+.heros h1{letter-spacing:-.015em;font-weight:600;line-height:1.04}
+h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01em;font-weight:600}
+.chiffre b,.kpi b,.tuile b,.bulle b{font-weight:600;letter-spacing:-.02em}
+.bande .piste{font-weight:600;font-size:18px;letter-spacing:.02em}
+.tableau-sql{background:#fff;border:1px solid var(--ligne);border-radius:18px;padding:22px}
+.graph-titre{margin:0 0 14px;font-size:14px;font-weight:600;color:var(--marine);font-family:var(--ui)}
+.barres{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
+.barre-l{display:grid;grid-template-columns:118px 1fr 72px;align-items:center;gap:10px;font-size:14px}
+.barre-l .nom{color:#3B4558}.barre-l b{text-align:right;color:var(--marine);font-weight:600}
+.barre-l .piste{height:14px;background:var(--fond);border-radius:6px;overflow:hidden}
+.barre-l .piste i{display:block;height:100%;width:0;background:#9DBCE3;border-radius:6px;transition:width 1.2s var(--ease)}
+.barre-l .piste i.fort{background:var(--bleu)}.barre-l .piste i.gris{background:#C3CBD6}
+.etude.vu .barre-l .piste i{width:var(--w)}
+.barre-l.repere{border-top:1px dashed var(--ligne);padding-top:9px}
+.tableau-sql .code{margin-top:6px}
+.petits.trois{grid-template-columns:repeat(3,1fr)}
+.petit .vignette.svg{background:#fff;padding:14px 14px 6px}
+.petit .vignette.svg svg{width:100%;height:100%;display:block;font-family:var(--ui)}
+@media (max-width:980px){.petits.trois{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.barre-l .piste i{width:var(--w)!important}}
+.tableau-audit .courbe{background:#fff;border-radius:14px;padding:14px 12px 4px;margin-top:12px}
+.tableau-audit .courbe svg{width:100%;height:auto;display:block;font-family:var(--ui)}
+.tableau-sql .lignage{aspect-ratio:auto;margin-bottom:16px;border-radius:10px}
+.tableau-sql .lignage img{position:static;opacity:1;transform:none;width:100%;height:auto}
+.petits.trois .petit:nth-child(4),.petits.trois .petit:nth-child(5){}
+.kpis.trois{grid-template-columns:repeat(3,1fr)}
+.kpis.trois .kpi b{font-size:28px}
+@media (max-width:560px){.kpis.trois{grid-template-columns:1fr}}
+.poste .sous-titre{margin:0 0 10px;color:var(--gris);font-size:15px}
+.poste .secteurs{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.poste .secteurs span{font-size:12.5px;font-weight:600;background:var(--bleu-clair);color:var(--bleu-fonce);padding:3px 10px;border-radius:7px}
+.bach-comp{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0 18px}
+.bach-comp .bc{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:6px;border-top:3px solid var(--bleu)}
+.bach-comp .bc b{font-family:var(--titre);font-weight:600;font-size:15.5px;color:var(--marine);line-height:1.25}
+.bach-comp .bc span{font-size:12.8px;color:var(--gris);line-height:1.4}
+.bach-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);font-weight:600;margin:0 0 8px}
+.bach-cas{display:flex;flex-wrap:wrap;gap:8px}
+.bach-cas a{font-size:13.5px;font-weight:600;color:var(--bleu-fonce);text-decoration:none;border:1px solid var(--bleu-clair);background:#fff;padding:6px 12px;border-radius:30px;transition:background .2s,color .2s,border-color .2s}
+.bach-cas a span{opacity:.6;margin-left:2px}
+.bach-cas a:hover{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+@media (max-width:980px){.bach-comp{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.legende{flex-direction:column;align-items:flex-start;gap:8px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Helton Dos Santos Moreira", "jobTitle": "Data Analyst", "address": {"@type": "PostalAddress", "addressRegion": "Île-de-France", "addressCountry": "FR"}, "email": "mailto:heltonmail8@gmail.com", "url": "https://github.com/Heltondsm", "sameAs": ["https://www.linkedin.com/in/helton-dsm-data", "https://github.com/Heltondsm"], "knowsAbout": ["Analyse de données", "Power BI", "DAX", "Power Query", "SQL", "Python", "Pandas", "Excel", "KPI", "Reporting", "Tableaux de bord", "Data visualisation", "Modélisation des données", "Qualité des données", "Statistiques", "Séries temporelles", "dbt", "Aide à la décision"]}</script>
+</head>
+<body>
+
+<nav id="barre"><div class="page">
+  <a class="marque" href="#"><img src="img/helton.jpg" alt=""><span>Helton Dos Santos Moreira</span></a>
+  <ul>
+        <li><a href="#projets">Projets</a></li>
+    <li><a href="#parcours">Expérience</a></li>
+    <li><a href="#competences">Compétences</a></li>
+  </ul>
+  <a class="btn blanc" href="cv/CV_Helton_Dos_Santos_Moreira_Data_Analyst.pdf" download>Mon CV</a>
+</div><div class="progression" id="progression"></div></nav>
+
+<header class="heros">
+  <div class="halo a"></div><div class="halo b"></div><div class="grille-fond"></div>
+  <div class="page">
+    <div class="gauche">
+      <span class="ouvert apparait" style="animation-delay:.1s"><i></i>Ouvert aux opportunités · Île-de-France</span>
+      <h1><span class="mot"><span style="animation-delay:.15s">Helton</span></span> <span class="mot"><span style="animation-delay:.25s">Dos</span></span> <span class="mot"><span style="animation-delay:.35s">Santos</span></span> <span class="mot"><span style="animation-delay:.45s">Moreira</span></span></h1>
+      <p class="metier apparait" style="animation-delay:.6s">Data Analyst · <span class="tourne" id="tourne">Power BI</span></p>
+      <p class="profil apparait" style="animation-delay:.75s">Avant la data, j'ai piloté des boutiques en ligne au coût d'acquisition et suivi une équipe de vente sur ses indicateurs. Aujourd'hui, je construis avec SQL, Python et Power BI les analyses et les tableaux de bord dont j'avais besoin à l'époque.</p>
+      <div class="boutons apparait" style="animation-delay:.9s">
+        <a class="btn marine" href="#projets">Voir mes projets</a>
+        <a class="btn contour" href="cv/CV_Helton_Dos_Santos_Moreira_Data_Analyst.pdf" download>Télécharger mon CV</a>
+      </div>
+    </div>
+    <div class="photo apparait" style="animation-delay:.3s">
+      <div class="aura"></div><img src="img/helton-detoure.webp" alt="Photo de Helton Dos Santos Moreira, en blazer marine et chemise blanche">
+    </div>
+  </div>
+</header>
+
+<div class="bande" aria-hidden="true"><div class="piste">
+  <span>Power BI</span><i>●</i><span>DAX</span><i>●</i><span>Power Query</span><i>●</i><span>SQL</span><i>●</i><span>Python</span><i>●</i><span>Pandas</span><i>●</i><span>Excel</span><i>●</i><span>Statistiques</span><i>●</i><span>dbt</span><i>●</i><span>Git</span><i>●</i>
+  <span>Power BI</span><i>●</i><span>DAX</span><i>●</i><span>Power Query</span><i>●</i><span>SQL</span><i>●</i><span>Python</span><i>●</i><span>Pandas</span><i>●</i><span>Excel</span><i>●</i><span>Statistiques</span><i>●</i><span>dbt</span><i>●</i><span>Git</span><i>●</i>
+</div></div>
+
+<main class="page">
+
+
+
+<section id="projets">
+  <p class="surtitre rv">Projets</p>
+  <h2 class="rv">Des problèmes métier, des résultats mesurables</h2>
+  <p class="intro rv">Power BI, Python, SQL et statistiques : un projet phare par compétence attendue d'un Data Analyst.</p>
+<article class="etude vedette rv">
+    <div class="haut">
+      <div>
+        <span class="badge">PROJET PHARE</span><span class="tag">POWER BI · KPI · REPORTING DE DIRECTION</span>
+        <h3>Pilotage d'un portefeuille de 104 projets : détection des dérives et sécurité des accès</h3>
+        <p class="etape-titre">Contexte et enjeu</p>
+        <p class="question">Un groupe international pilote 104 projets IT et Marketing dans 52 pays. Les données existent, mais aucun outil ne permet de suivre les écarts de coûts, de délais et de livrables, ni de restreindre chaque direction à son périmètre.</p>
+        <p class="etape-titre">Démarche</p>
+        <ul class="points">
+          <li>Un tableau de bord Power BI de 9 pages, avec une <b>alerte automatique dès 15 % d'écart</b> sur les coûts, les délais ou les livrables</li>
+          <li>Une <b>sécurité au niveau des lignes</b> sur 3 rôles : direction générale, régionale et pays</li>
+          <li><b>25 mesures DAX</b>, une page de recommandations chiffrées et un guide d'utilisation intégré</li>
+        </ul>
+      </div>
+      <figure class="galerie visuel" style="margin:0">
+        <div class="ecran">
+          <img loading="lazy" decoding="async" class="actif" src="img/p7-vue-globale.jpg" alt="Vue globale : carte des pays en alerte et indicateurs clés" data-legende="Vue globale : les pays en alerte">
+          <img loading="lazy" decoding="async" src="img/p7-budget.jpg" alt="Budget prévu contre dépensé par pays et écart par phase" data-legende="Budget : la phase D à +401,3 %">
+          <img loading="lazy" decoding="async" src="img/p7-recommandations.jpg" alt="Constats et recommandations pour la direction" data-legende="Recommandations chiffrées pour la direction">
+          <img loading="lazy" decoding="async" src="img/p7-delais.jpg" alt="Planning des projets et retard par phase" data-legende="Délais : le retard par phase">
+          <img loading="lazy" decoding="async" src="img/p7-accueil.jpg" alt="Page d'accueil et navigation du rapport" data-legende="Accueil et navigation">
+        </div>
+        <figcaption class="legende"><span class="texte-legende"></span><span class="points-g"></span></figcaption>
+      </figure>
+    </div>
+    <div class="resultat">
+      <span class="etiquette">RÉSULTATS</span>
+      <p><b>19 des 32 projets en alerte sont concentrés dans une seule région</b>, et une seule phase (+401,3 %) faussait la lecture du budget global. Le plan d'action proposé vise à ramener le taux d'alerte de 30,8 % à moins de 15 %.</p>
+      <div class="liens"><div class="outils"><span>Power BI</span><span>DAX</span><span>KPI</span><span>RLS</span></div><a class="lien" href="https://github.com/Heltondsm/powerbi-portefeuille-projets-rls">Voir le projet <span>→</span></a></div>
+    </div>
+  </article>
+<article class="etude rv">
+    <div class="haut">
+      <div>
+        <span class="tag">PYTHON · QUALITÉ DES DONNÉES · E-COMMERCE</span>
+        <h3>Audit de la qualité des données d'un catalogue e-commerce</h3>
+        <p class="etape-titre">Contexte et enjeu</p>
+        <p class="question">Un caviste en ligne gère son stock dans un ERP et ses ventes sur WooCommerce, sans clé commune entre les deux. Avant toute analyse des ventes, il faut savoir si ces données sont fiables.</p>
+        <p class="etape-titre">Démarche</p>
+        <ul class="points">
+          <li>Rapprochement de <b>3 sources</b> (ERP, site, table de liaison) : 712 produits réconciliés</li>
+          <li><b>9 anomalies</b> identifiées et traitées : prix et stocks négatifs, lignes vides, références sans correspondance</li>
+          <li>Chiffre d'affaires, marges et valorisation du stock recalculés, puis <b>analyse de la concentration</b> des ventes</li>
+        </ul>
+      </div>
+      <div class="tableau-audit visuel">
+        <div class="kpis trois">
+          <div class="kpi"><b data-cible="276859" data-suffixe=" €">276 859 €</b><span>de stock valorisé</span></div>
+          <div class="kpi"><b data-cible="9">9</b><span>anomalies identifiées et traitées</span></div>
+          <div class="kpi"><b class="rouge">-549 %</b><span>de marge : erreur de prix détectée</span></div>
+        </div>
+        <div class="courbe"><svg viewBox="0 0 440 250" role="img" aria-label="Courbe de concentration : 59 % des références font 80 % du chiffre d'affaires">
+<g font-size="10.5" fill="#5E6A7E"><line x1="44" x2="424" y1="220.0" y2="220.0" stroke="#E2E8F0"/><text x="38" y="224.0" text-anchor="end">0 %</text><line x1="44" x2="424" y1="123.0" y2="123.0" stroke="#E2E8F0"/><text x="38" y="127.0" text-anchor="end">50 %</text><line x1="44" x2="424" y1="26.0" y2="26.0" stroke="#E2E8F0"/><text x="38" y="30.0" text-anchor="end">100 %</text>
+<text x="44.0" y="238" text-anchor="middle">0 %</text><text x="234.0" y="238" text-anchor="middle">50 %</text><text x="424.0" y="238" text-anchor="middle">100 %</text></g>
+<line x1="267.6" x2="267.6" y1="220.0" y2="64.8" stroke="#376DAE" stroke-dasharray="4 4"/><line x1="44" x2="267.6" y1="64.8" y2="64.8" stroke="#376DAE" stroke-dasharray="4 4"/>
+<polyline points="44.0,220.0 44.5,211.3 46.1,204.6 47.7,200.2 49.3,197.1 51.0,194.5 52.5,192.0 54.1,189.7 55.7,187.5 57.3,185.5 58.9,183.6 60.5,181.8 62.2,180.1 63.8,178.4 65.4,176.7 67.0,175.1 68.5,173.6 70.1,172.1 71.7,170.7 73.3,169.3 75.0,167.9 76.6,166.5 78.2,165.2 79.8,163.8 81.4,162.5 82.9,161.2 84.5,159.8 86.2,158.5 87.8,157.3 89.4,156.0 91.0,154.8 92.6,153.6 94.2,152.4 95.8,151.2 97.4,150.0 99.0,148.9 100.6,147.7 102.2,146.6 103.8,145.5 105.4,144.4 107.0,143.3 108.6,142.2 110.2,141.1 111.8,140.1 113.4,139.0 115.0,137.9 116.6,136.9 118.2,135.9 119.8,134.8 121.4,133.8 123.0,132.8 124.6,131.8 126.2,130.8 127.8,129.8 129.4,128.8 131.0,127.8 132.6,126.9 134.2,125.9 135.8,125.0 137.4,124.0 139.0,123.1 140.6,122.2 142.2,121.3 143.8,120.4 145.4,119.5 147.0,118.6 148.6,117.8 150.2,116.9 151.8,116.0 153.4,115.2 155.0,114.3 156.6,113.5 158.2,112.6 159.8,111.8 161.4,110.9 163.0,110.1 164.6,109.3 166.2,108.5 167.8,107.6 169.4,106.8 171.0,106.0 172.6,105.2 174.2,104.4 175.8,103.6 177.4,102.8 179.0,102.0 180.6,101.2 182.2,100.4 183.8,99.7 185.4,98.9 187.0,98.1 188.6,97.4 190.2,96.6 191.8,95.9 193.5,95.1 195.1,94.4 196.6,93.6 198.2,92.9 199.8,92.2 201.4,91.5 203.0,90.7 204.7,90.0 206.3,89.3 207.9,88.6 209.5,87.9 211.0,87.2 212.6,86.5 214.2,85.8 215.8,85.1 217.5,84.4 219.1,83.7 220.7,83.1 222.3,82.4 223.9,81.7 225.4,81.0 227.0,80.4 228.7,79.7 230.3,79.1 231.9,78.4 233.5,77.8 235.1,77.2 236.7,76.5 238.3,75.9 239.9,75.3 241.5,74.6 243.1,74.0 244.7,73.4 246.3,72.8 247.9,72.2 249.5,71.6 251.1,70.9 252.7,70.3 254.3,69.7 255.9,69.2 257.5,68.6 259.1,68.0 260.7,67.4 262.3,66.8 263.9,66.2 265.5,65.7 267.1,65.1 268.7,64.5 270.3,63.9 271.9,63.4 273.5,62.8 275.1,62.3 276.7,61.7 278.3,61.2 279.9,60.6 281.5,60.0 283.1,59.5 284.7,59.0 286.3,58.4 287.9,57.9 289.5,57.3 291.1,56.8 292.7,56.3 294.3,55.8 295.9,55.2 297.5,54.7 299.1,54.2 300.7,53.7 302.3,53.1 303.9,52.6 305.5,52.1 307.1,51.6 308.7,51.1 310.3,50.6 311.9,50.1 313.5,49.6 315.1,49.1 316.7,48.6 318.3,48.1 319.9,47.7 321.5,47.2 323.1,46.7 324.7,46.3 326.3,45.8 327.9,45.3 329.5,44.9 331.1,44.4 332.7,43.9 334.3,43.5 336.0,43.0 337.6,42.6 339.1,42.1 340.7,41.7 342.3,41.2 343.9,40.8 345.5,40.4 347.2,39.9 348.8,39.5 350.4,39.1 352.0,38.7 353.5,38.3 355.1,37.9 356.7,37.4 358.3,37.0 360.0,36.6 361.6,36.2 363.2,35.8 364.8,35.4 366.4,35.0 367.9,34.6 369.5,34.2 371.2,33.8 372.8,33.4 374.4,33.0 376.0,32.7 377.6,32.3 379.2,31.9 380.8,31.5 382.4,31.2 384.0,30.8 385.6,30.5 387.2,30.1 388.8,29.8 390.4,29.4 392.0,29.1 393.6,28.8 395.2,28.4 396.8,28.1 398.4,27.8 400.0,27.5 401.6,27.2 403.2,27.0 404.8,26.7 406.4,26.4 408.0,26.2 409.6,26.1 411.2,26.0 412.8,26.0 414.4,26.0 416.0,26.0 417.6,26.0 419.2,26.0 420.8,26.0 422.4,26.0 424.0,26.0" fill="none" stroke="#376DAE" stroke-width="2.6" stroke-linejoin="round"/>
+<circle cx="267.6" cy="64.8" r="5" fill="#376DAE"/>
+<text x="287.6" y="168" font-size="12" fill="#16192A" font-weight="600">419 références sur 712</text><text x="287.6" y="183" font-size="11" fill="#5E6A7E">font 80 % du chiffre d'affaires</text>
+<text x="44" y="14" font-size="10.5" fill="#5E6A7E">part du chiffre d'affaires cumulé, selon la part des références</text></svg></div>
+      </div>
+    </div>
+    <div class="resultat">
+      <span class="etiquette">RÉSULTATS</span>
+      <p><b>Des données fiables pour piloter le catalogue</b> : une erreur de prix repérée sur une référence, 61 références en stock à arbitrer entre mise en ligne et déstockage (20 982 € au prix d'achat), et les 419 références qui font 80 % du chiffre d'affaires à suivre en priorité.</p>
+      <div class="liens"><div class="outils"><span>Python</span><span>Pandas</span><span>Qualité des données</span></div><a class="lien" href="https://github.com/Heltondsm/python-audit-donnees-catalogue">Voir le projet <span>→</span></a></div>
+    </div>
+  </article>
+<article class="etude rv">
+    <div class="haut">
+      <div>
+        <span class="tag">SQL · DBT · QUALITÉ DES DONNÉES</span>
+        <h3>Pipeline SQL sous dbt : profil des apprenants et représentativité territoriale</h3>
+        <p class="etape-titre">Contexte et enjeu</p>
+        <p class="question">Une plateforme de formation en ligne veut connaître le profil de ses apprenants en data sur quatre ans, et le comparer à la population française pour orienter ses actions d'inclusion.</p>
+        <p class="etape-titre">Démarche</p>
+        <ul class="points">
+          <li>Un pipeline <b>dbt</b> en SQL : couche de préparation, tables d'analyse, contrôle de qualité de la source au résultat</li>
+          <li>Un croisement avec la <b>population INSEE</b> sur trois clés (âge, genre, région) : taux pour 10 000 habitants</li>
+          <li><b>26 tests automatisés</b>, conçu sur Snowflake et reproductible en local avec DuckDB en une commande</li>
+        </ul>
+      </div>
+      <div class="tableau-sql visuel">
+        <div class="ecran noir lignage"><img loading="lazy" decoding="async" src="img/dbt-lignage.jpg" alt="Graphe du pipeline dbt : deux sources préparées, agrégées puis croisées avec l'INSEE"></div>
+        <p class="graph-titre">Apprenants sur 4 ans pour 10 000 habitants, par région</p>
+        <div class="barres"><div class="barre-l"><span class="nom">Île-de-France</span><span class="piste"><i style="--w:100.0%" class="fort"></i></span><b>1,85</b></div><div class="barre-l"><span class="nom">Centre-Val de Loire</span><span class="piste"><i style="--w:60.5%"></i></span><b>1,12</b></div><div class="barre-l"><span class="nom">Bourgogne-Franche-Comté</span><span class="piste"><i style="--w:59.5%"></i></span><b>1,10</b></div><div class="barre-l"><span class="nom">Provence-Alpes-Côte d'Azur</span><span class="piste"><i style="--w:48.1%"></i></span><b>0,89</b></div><div class="barre-l"><span class="nom">Normandie</span><span class="piste"><i style="--w:47.6%"></i></span><b>0,88</b></div><div class="barre-l repere"><span class="nom">Reste de la France</span><span class="piste"><i style="--w:44.3%" class="gris"></i></span><b>0,82</b></div></div>
+      </div>
+    </div>
+    <div class="resultat">
+      <span class="etiquette">RÉSULTATS</span>
+      <p><b>L'Île-de-France est 2,3 fois mieux représentée que le reste de la France</b>, les femmes restent à un tiers des inscrits dont le genre est connu et 64 % ont entre 25 et 39 ans. Trois leviers recommandés : bourses et témoignages pour les femmes, relais locaux en région, présence sur les campus pour les plus jeunes.</p>
+      <div class="liens"><div class="outils"><span>SQL</span><span>dbt</span><span>Snowflake</span><span>Tests</span></div><a class="lien" href="https://github.com/Heltondsm/dbt-demographics-pipeline">Voir le projet <span>→</span></a></div>
+    </div>
+  </article>
+<article class="etude rv">
+    <div class="haut">
+      <div>
+        <span class="tag">PYTHON · STATISTIQUES · PRÉVISION</span>
+        <h3>Analyse d'un catalogue musical et optimisation du calendrier de sortie</h3>
+        <p class="etape-titre">Contexte et enjeu</p>
+        <p class="question">Un distributeur musical gère 114 000 morceaux. Il doit décider quels genres soutenir et à quel moment sortir un titre pour maximiser sa présence dans les classements.</p>
+        <p class="etape-titre">Démarche</p>
+        <ul class="points">
+          <li>Un catalogue de 114 000 morceaux nettoyé et décrit, <b>99,6 % des données conservées</b></li>
+          <li>Des <b>tests statistiques</b> adaptés à chaque question, avec la taille de l'effet</li>
+          <li>L'analyse de <b>9,8 millions de lignes de classements</b> et une prévision Prophet à six mois, validée sur 90 jours</li>
+        </ul>
+      </div>
+      <figure class="galerie visuel" style="margin:0">
+        <div class="ecran">
+          <img loading="lazy" decoding="async" class="actif" src="img/st-rythmes2.jpg" alt="Présence de la Pop par jour, par mois et par année" data-legende="Saisonnalité : le vendredi en retrait, décembre en tête">
+          <img loading="lazy" decoding="async" src="img/st-genres.jpg" alt="Popularité par genre" data-legende="27 % de l'écart de popularité s'explique par le genre">
+          <img loading="lazy" decoding="async" src="img/st-leviers.jpg" alt="Quatre recommandations pour le distributeur" data-legende="Quatre recommandations opérationnelles">
+          <img loading="lazy" decoding="async" src="img/st-radar.jpg" alt="Profil sonore de cinq genres" data-legende="Profil sonore de cinq genres">
+          <img loading="lazy" decoding="async" src="img/st-nettoyage.jpg" alt="Étapes du nettoyage du catalogue" data-legende="Un nettoyage tracé étape par étape">
+        </div>
+        <figcaption class="legende"><span class="texte-legende"></span><span class="points-g"></span></figcaption>
+      </figure>
+    </div>
+    <div class="resultat">
+      <span class="etiquette">RÉSULTATS</span>
+      <p><b>Un calendrier de sortie fondé sur les données</b> : la Pop occupe 86,7 places par jour du Top 200 en décembre contre 76,9 en septembre, et le vendredi est à éviter. Quatre leviers activables immédiatement.</p>
+      <div class="liens"><div class="outils"><span>Python</span><span>SciPy</span><span>Prophet</span></div><a class="lien" href="https://github.com/Heltondsm/analyse-streaming-musical">Voir le projet <span>→</span></a></div>
+    </div>
+  </article>
+</section>
+
+<section>
+  <p class="surtitre rv">Autres projets</p>
+  <h2 class="rv">Un secteur différent, la même exigence</h2>
+  <p class="intro rv">Chaque projet part d'une question concrète posée par une organisation.</p>
+  <div class="petits trois">
+    <a class="petit rv" href="https://github.com/Heltondsm/powerbi-aide-decision-eau-potable"><div class="vignette"><img loading="lazy" decoding="async" src="img/p10-region.jpg" alt="Tableau de bord Power BI : pays prioritaires par domaine d'intervention"></div><div class="corps"><span class="tag">POWER BI · AIDE À LA DÉCISION</span><h3>Cibler les investissements d'une ONG de l'eau</h3><p>Un tableau de bord Power BI pour choisir un pays par domaine d'intervention, avec un paramètre de risque politique.</p><span class="fl">Voir sur GitHub →</span></div></a>
+    <a class="petit rv d1" href="https://github.com/Heltondsm/sql-assurances-habitation"><div class="vignette svg"><svg viewBox="0 0 420 262" role="img" aria-label="Cotisation mensuelle moyenne : 36,40 € à Paris contre 16,10 € hors Paris"><text x="20" y="40" font-size="12" fill="#16192A">Paris</text><rect x="150" y="28" width="220.0" height="16" rx="4" fill="#376DAE"/><text x="376.0" y="40" font-size="11.5" fill="#16192A" font-weight="600">36,40 €</text><text x="20" y="78" font-size="12" fill="#16192A">Hauts-de-Seine</text><rect x="150" y="66" width="158.8" height="16" rx="4" fill="#9DBCE3"/><text x="314.8" y="78" font-size="11.5" fill="#16192A" font-weight="600">26,27 €</text><text x="20" y="116" font-size="12" fill="#16192A">Val-de-Marne</text><rect x="150" y="104" width="119.8" height="16" rx="4" fill="#9DBCE3"/><text x="275.8" y="116" font-size="11.5" fill="#16192A" font-weight="600">19,82 €</text><text x="20" y="154" font-size="12" fill="#16192A">Yvelines</text><rect x="150" y="142" width="114.2" height="16" rx="4" fill="#9DBCE3"/><text x="270.2" y="154" font-size="11.5" fill="#16192A" font-weight="600">18,89 €</text><text x="20" y="192" font-size="12" fill="#16192A">Hors Paris</text><rect x="150" y="180" width="97.3" height="16" rx="4" fill="#9DBCE3"/><text x="253.3" y="192" font-size="11.5" fill="#16192A" font-weight="600">16,10 €</text></svg></div><div class="corps"><span class="tag">SQL · MODÉLISATION</span><h3>Facteurs de tarification en assurance habitation</h3><p>Base SQLite de 30 326 contrats conçue et interrogée : à Paris, la cotisation est 2,3 fois plus élevée pour un logement plus petit.</p><span class="fl">Voir sur GitHub →</span></div></a>
+    <a class="petit rv d2" href="https://github.com/Heltondsm/analyse-ventes-ecommerce"><div class="vignette svg"><svg viewBox="0 0 420 262" role="img" aria-label="Visites mensuelles passées de 20 000 à 550 000, et conversion à 5 % contre 3 % pour le marché">
+<text x="30" y="34" font-size="11" fill="#5E6A7E">Visites mensuelles</text>
+<rect x="30" y="46" width="13.1" height="26" rx="4" fill="#C9D9EE"/><text x="51.1" y="64" font-size="12" fill="#16192A">20 000</text>
+<rect x="30" y="80" width="360" height="26" rx="4" fill="#376DAE"/><text x="380" y="98" font-size="12" fill="#fff" text-anchor="end" font-weight="600">550 000  ×30</text>
+<text x="30" y="148" font-size="11" fill="#5E6A7E">Taux de conversion</text>
+<rect x="30" y="160" width="163.6" height="26" rx="4" fill="#376DAE"/><text x="201.6" y="178" font-size="12" fill="#16192A" font-weight="600">5 % sur le site</text>
+<rect x="30" y="194" width="98.2" height="26" rx="4" fill="#C9D9EE"/><text x="136.2" y="212" font-size="12" fill="#16192A">3 % en moyenne sur le marché</text>
+</svg></div><div class="corps"><span class="tag">EXCEL · KPI · E-COMMERCE</span><h3>Repositionnement d'un e-commerce : mesure de l'impact</h3><p>Trafic multiplié par 30, conversion supérieure au marché, et une double stratégie présentée à la direction.</p><span class="fl">Voir sur GitHub →</span></div></a>
+    <a class="petit rv" href="https://github.com/Heltondsm/etude-sante-publique-fao"><div class="vignette svg"><svg viewBox="0 0 420 262" role="img" aria-label="Nuage de points : plus la nourriture disponible par habitant est faible, plus la sous-nutrition est forte"><g font-size="11" fill="#5E6A7E"><line x1="40" x2="405" y1="232.0" y2="232.0" stroke="#E2E8F0"/><text x="34" y="236.0" text-anchor="end">0 %</text><line x1="40" x2="405" y1="126.0" y2="126.0" stroke="#E2E8F0"/><text x="34" y="130.0" text-anchor="end">25 %</text><line x1="40" x2="405" y1="20.0" y2="20.0" stroke="#E2E8F0"/><text x="34" y="24.0" text-anchor="end">50 %</text><text x="76.5" y="250" text-anchor="middle">2 000</text><text x="222.5" y="250" text-anchor="middle">2 800</text><text x="368.5" y="250" text-anchor="middle">3 600</text></g><circle cx="92.4" cy="109.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="262.6" cy="209.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="293.3" cy="217.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="312.5" cy="218.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="163.0" cy="149.3" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="305.5" cy="211.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="300.2" cy="217.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="159.2" cy="174.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="189.5" cy="201.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="122.1" cy="167.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="135.8" cy="135.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="227.6" cy="220.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="207.4" cy="152.3" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="162.8" cy="168.4" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="198.6" cy="204.4" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="255.3" cy="218.4" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="258.6" cy="215.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="222.5" cy="208.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="114.1" cy="115.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="230.9" cy="215.0" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="222.0" cy="146.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="353.5" cy="211.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="181.6" cy="192.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="309.2" cy="218.4" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="139.6" cy="194.3" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="136.0" cy="156.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="100.0" cy="148.0" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="227.2" cy="170.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="189.8" cy="174.3" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="241.1" cy="200.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="261.6" cy="202.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="152.4" cy="164.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="92.7" cy="27.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="193.1" cy="173.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="159.4" cy="171.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="218.1" cy="194.3" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="275.2" cy="211.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="175.4" cy="130.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="211.9" cy="188.3" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="277.1" cy="197.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="113.9" cy="131.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="225.6" cy="204.4" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="172.9" cy="70.0" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="269.8" cy="207.0" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="114.1" cy="69.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="86.7" cy="57.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="243.3" cy="218.4" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="142.9" cy="152.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="238.4" cy="209.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="332.4" cy="215.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="236.2" cy="182.4" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="271.4" cy="203.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="169.4" cy="150.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="128.0" cy="92.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="181.3" cy="173.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="106.8" cy="179.0" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="199.1" cy="205.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="192.9" cy="159.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="204.2" cy="181.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="284.6" cy="195.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="215.0" cy="220.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="156.4" cy="181.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="209.9" cy="201.0" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="183.1" cy="195.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="203.7" cy="202.3" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="180.2" cy="168.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="188.0" cy="207.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="93.5" cy="31.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="113.7" cy="128.1" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="117.4" cy="83.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="159.2" cy="190.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="208.8" cy="212.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="149.7" cy="118.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="248.6" cy="208.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="137.6" cy="179.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="174.5" cy="199.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="96.4" cy="70.9" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="219.8" cy="193.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="100.0" cy="95.5" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="158.3" cy="143.8" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="229.1" cy="217.2" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="284.2" cy="217.6" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="192.0" cy="116.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><circle cx="212.3" cy="202.7" r="3.6" fill="#376DAE" fill-opacity=".72"/><text x="40" y="16" font-size="10.5" fill="#5E6A7E">sous-nutrition (%) selon les kcal disponibles par habitant</text></svg></div><div class="corps"><span class="tag">PYTHON · SANTÉ PUBLIQUE</span><h3>Sous-nutrition mondiale : un enjeu de répartition</h3><p>528 millions de personnes sous-alimentées, alors que la production couvre les besoins de 94,3 % de la population.</p><span class="fl">Voir sur GitHub →</span></div></a>
+    <a class="petit rv d1" href="https://github.com/Heltondsm/ecommerce-sales-analysis-sarima"><div class="vignette svg"><svg viewBox="0 0 420 262" role="img" aria-label="Ventes mensuelles de 2015 à 2018, avec une saisonnalité marquée en fin d'année"><line x1="40" x2="405" y1="232" y2="232" stroke="#E2E8F0"/><polyline points="40.0,207.1 47.8,224.1 55.5,135.1 63.3,183.0 71.1,190.5 78.8,171.8 86.6,172.7 94.4,184.4 102.1,88.7 109.9,176.8 117.7,95.3 125.4,112.4 133.2,200.3 141.0,211.0 148.7,175.2 156.5,172.1 164.3,179.4 172.0,190.6 179.8,181.8 187.6,167.4 195.3,121.2 203.1,177.6 210.9,99.9 218.6,101.2 226.4,199.5 234.1,191.7 241.9,142.2 249.7,164.1 257.4,132.6 265.2,162.3 273.0,164.7 280.7,178.4 288.5,110.6 296.3,127.4 304.0,93.2 311.8,64.0 319.6,155.7 327.3,197.0 335.1,128.7 342.9,169.6 350.6,155.1 358.4,147.4 366.2,153.3 373.9,121.7 381.7,80.8 389.5,96.1 397.2,25.0 405.0,86.3" fill="none" stroke="#376DAE" stroke-width="2.4" stroke-linejoin="round"/><g font-size="11" fill="#5E6A7E"><text x="40.0" y="250" text-anchor="middle">2015</text><text x="133.2" y="250" text-anchor="middle">2016</text><text x="226.4" y="250" text-anchor="middle">2017</text><text x="319.6" y="250" text-anchor="middle">2018</text></g><text x="40" y="16" font-size="10.5" fill="#5E6A7E">ventes mensuelles, en dollars</text></svg></div><div class="corps"><span class="tag">PYTHON · SÉRIES TEMPORELLES</span><h3>Prévision des ventes d'un e-commerce</h3><p>Quatre ans de ventes analysées et un modèle SARIMA sélectionné parmi 64 combinaisons.</p><span class="fl">Voir sur GitHub →</span></div></a>
+    <a class="petit rv d2" href="https://github.com/Heltondsm/job-market-pipeline"><div class="vignette svg"><svg viewBox="0 0 420 262" role="img" aria-label="Offres collectées par famille de métiers au relevé du 4 octobre 2026"><text x="20" y="40" font-size="12" fill="#16192A">Data Engineer</text><rect x="150" y="28" width="220.0" height="16" rx="4" fill="#376DAE"/><text x="376.0" y="40" font-size="11.5" fill="#16192A" font-weight="600">224</text><text x="20" y="78" font-size="12" fill="#16192A">Data Analyst</text><rect x="150" y="66" width="139.5" height="16" rx="4" fill="#376DAE"/><text x="295.5" y="78" font-size="11.5" fill="#16192A" font-weight="600">142</text><text x="20" y="116" font-size="12" fill="#16192A">BI</text><rect x="150" y="104" width="115.9" height="16" rx="4" fill="#9DBCE3"/><text x="271.9" y="116" font-size="11.5" fill="#16192A" font-weight="600">118</text><text x="20" y="154" font-size="12" fill="#16192A">Machine Learning</text><rect x="150" y="142" width="89.4" height="16" rx="4" fill="#9DBCE3"/><text x="245.4" y="154" font-size="11.5" fill="#16192A" font-weight="600">91</text><text x="20" y="192" font-size="12" fill="#16192A">Data Scientist</text><rect x="150" y="180" width="88.4" height="16" rx="4" fill="#9DBCE3"/><text x="244.4" y="192" font-size="11.5" fill="#16192A" font-weight="600">90</text></svg></div><div class="corps"><span class="tag">PYTHON · API · AUTOMATISATION</span><h3>Veille automatisée du marché de l'emploi data</h3><p>787 offres et 1 135 entreprises collectées chaque semaine via les API France Travail et INSEE Sirene.</p><span class="fl">Voir sur GitHub →</span></div></a>
+  </div>
+</section>
+
+<section id="parcours">
+  <p class="surtitre rv">Expérience</p>
+  <h2 class="rv">Les chiffres, je les utilisais déjà</h2>
+  <p class="intro rv">Avant la data, je prenais les décisions avec des tableaux de bord. C'est ce qui m'a amené à apprendre à les construire correctement.</p>
+  <div class="parcours" id="frise"><div class="trait"></div>
+    <div class="poste rv"><div><div class="date">12/2025 · 12/2026</div><div class="lieu">OpenClassrooms</div></div><div><h3>Bachelor Data Analyst</h3><p class="sous-titre">Titre RNCP de niveau 6 (bac+3) · formation professionnalisante par projets, accompagnée par un mentor du métier, chaque projet soutenu devant un évaluateur</p><ul>
+<li><b>Collecter, nettoyer et fiabiliser</b> des données : Python, Pandas, Power Query</li>
+<li><b>Interroger et modéliser</b> une base de données : SQL, schéma relationnel, dbt, Snowflake</li>
+<li><b>Construire des tableaux de bord</b> et suivre des indicateurs : Power BI, DAX, Excel</li>
+<li><b>Analyser et prévoir</b> : tests statistiques, séries temporelles (Prophet, SARIMA)</li>
+<li><b>Présenter des recommandations</b> à des décideurs : data storytelling, accessibilité des tableaux de bord</li>
+</ul></div></div>
+    <div class="poste rv d1"><div><div class="date">01/2022 · 09/2026</div><div class="lieu">Indépendant</div></div><div><h3>E-commerce et analyse de données</h3><ul><li><b>Indicateurs suivis dans Google Analytics 4 et Shopify</b> : chiffre d'affaires, conversion, panier moyen, sources de trafic</li><li>Budget Google, Meta et TikTok Ads <b>arbitré chaque semaine sur le ROAS et le coût d'acquisition (CAC)</b></li>
+<li>Données clients analysées pour ajuster les pages produits, les prix et le ciblage</li><li>10 boutiques Shopify gérées en autonomie, du catalogue jusqu'à l'acquisition client</li></ul></div></div>
+    <div class="poste rv d2"><div><div class="date">09/2022 · 07/2024</div><div class="lieu">HUBSIDE STORE, Belle Épine</div></div><div><h3>Conseiller commercial, puis directeur adjoint</h3><ul><li><b>Tableau de bord hebdomadaire construit et automatisé</b> sous Excel : chiffre d'affaires, panier moyen, taux de transformation</li><li><b>Reporting mensuel</b> à la direction</li><li>8 vendeurs encadrés et suivis sur leurs indicateurs de performance</li></ul></div></div>
+    <div class="poste rv d3"><div><div class="date">06/2019 · 09/2022</div><div class="lieu">BRICOMAN, groupe ADEO</div></div><div><h3>Consultant technique principal</h3><ul><li><b>Données commerciales</b> d'un portefeuille de clients professionnels exploitées pour repérer les ventes croisées</li><li>Suivi des indicateurs de performance et <b>suivi analytique des cycles de chantiers</b>, 3 ans dans un groupe national</li></ul></div></div>
+  </div>
+</section>
+
+<section id="competences">
+  <p class="surtitre rv">Compétences</p>
+  <h2 class="rv">Mes outils et mes méthodes</h2>
+  <p class="intro rv">Seulement ceux que mes projets prouvent.</p>
+  <div class="competences">
+    <div class="bloc rv"><h3>Visualisation</h3><div class="puces"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Sécurité par ligne</span><span>Matplotlib</span><span>Plotly</span></div></div>
+    <div class="bloc rv d1"><h3>Analyse</h3><div class="puces"><span>SQL</span><span>Python</span><span>Pandas</span><span>Excel</span><span>Google Analytics 4</span></div></div>
+    <div class="bloc rv d2"><h3>Statistiques</h3><div class="puces"><span>Tests d'hypothèses</span><span>Corrélations</span><span>SARIMA</span><span>Prophet</span></div></div>
+    <div class="bloc rv d3"><h3>Données</h3><div class="puces"><span>dbt</span><span>Snowflake</span><span>DuckDB</span><span>API REST</span><span>Git</span></div></div>
+    <div class="bloc rv"><h3>Méthodes</h3><div class="puces"><span>KPI et reporting</span><span>Qualité des données</span><span>Modélisation</span><span>Data storytelling</span><span>Aide à la décision</span></div></div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" class="contact">
+  <div class="halo c"></div>
+  <div class="page">
+    <div class="grille rv">
+      <div class="rond"><img src="img/helton.jpg" alt=""></div>
+      <div>
+        <h2>Parlons de votre besoin</h2>
+        <p>Vous cherchez un Data Analyst qui comprend le métier avant d'ouvrir un notebook ? Écrivez-moi, je réponds vite.</p>
+        <div class="boutons">
+          <a class="btn blanc" href="mailto:heltonmail8@gmail.com">heltonmail8@gmail.com</a>
+          <a class="btn contour" href="https://www.linkedin.com/in/helton-dsm-data">LinkedIn</a>
+          <a class="btn contour" href="https://github.com/Heltondsm">GitHub</a>
+          <a class="btn contour" href="cv/CV_Helton_Dos_Santos_Moreira_Data_Analyst.pdf" download>Mon CV en PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="pied"><span>© 2026 Helton Dos Santos Moreira</span><span>Data Analyst · Île-de-France</span></div>
+  </div>
+</footer>
+
+<script>
+const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const barre=document.getElementById('barre'), prog=document.getElementById('progression');
+function surDefilement(){
+  barre.classList.toggle('pleine',scrollY>40);
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?scrollY/h*100:0)+'%';
+}
+addEventListener('scroll',surDefilement,{passive:true});surDefilement();
+
+const mots=['Power BI','SQL','Python','Excel'];let im=0;
+const tourne=document.getElementById('tourne');
+if(!calme) setInterval(()=>{
+  tourne.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-8px)'}],{duration:250,fill:'forwards'}).onfinish=()=>{
+    im=(im+1)%mots.length;tourne.textContent=mots[im];
+    tourne.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:300,fill:'forwards'});
+  };
+},2400);
+
+function format(n,dec){return n.toLocaleString('fr-FR',{minimumFractionDigits:dec||0,maximumFractionDigits:dec||0}).replace(/[\u202f\u00a0]/g,' ')}
+function compte(el){
+  if(el.dataset.fait) return; el.dataset.fait=1;
+  const cible=+el.dataset.cible, pre=el.dataset.prefixe||'', suf=el.dataset.suffixe||'', dec=+(el.dataset.decimales||0);
+  if(calme){el.textContent=pre+format(cible,dec)+suf;return}
+  const t0=performance.now(), d=1600;
+  (function pas(t){const p=Math.min((t-t0)/d,1), e=1-Math.pow(1-p,3);
+    el.textContent=pre+format(cible*e,dec)+suf; if(p<1) requestAnimationFrame(pas)})(t0);
+}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  e.target.classList.add('vu');
+  e.target.querySelectorAll('[data-cible]').forEach(compte);
+  obs.unobserve(e.target);
+}),{threshold:.15});
+document.querySelectorAll('.rv,#frise').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.galerie').forEach(g=>{
+  const imgs=[...g.querySelectorAll('.ecran img')], pts=g.querySelector('.points-g'), leg=g.querySelector('.texte-legende');
+  const duree=4500; let i=0, minuteur=null;
+  g.style.setProperty('--duree',duree+'ms');
+  const boutons=imgs.map((img,k)=>{const b=document.createElement('button');b.setAttribute('aria-label','Image '+(k+1)+' : '+img.dataset.legende);b.onclick=()=>{montre(k);relance()};pts.appendChild(b);return b});
+  function montre(k){imgs[i].classList.remove('actif');boutons[i].classList.remove('actif');i=k;
+    imgs[i].classList.add('actif');void boutons[i].offsetWidth;boutons[i].classList.add('actif');leg.textContent=imgs[i].dataset.legende}
+  function relance(){clearInterval(minuteur);if(!calme) minuteur=setInterval(()=>montre((i+1)%imgs.length),duree)}
+  montre(0);relance();
+  g.addEventListener('mouseenter',()=>{clearInterval(minuteur);g.classList.add('pause')});
+  g.addEventListener('mouseleave',()=>{g.classList.remove('pause');relance()});
+  g.addEventListener('focusin',()=>{clearInterval(minuteur);g.classList.add('pause')});
+  g.addEventListener('focusout',()=>{g.classList.remove('pause');relance()});
+});
+</script>
+</body>
+</html>
