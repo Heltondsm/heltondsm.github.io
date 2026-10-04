@@ -300,6 +300,8 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
 .kpis.trois{grid-template-columns:repeat(3,1fr)}
 .kpis.trois .kpi b{font-size:28px}
 @media (max-width:560px){.kpis.trois{grid-template-columns:1fr}}
+.formation .poste::before{display:none}
+.poste .texte{margin:0 0 12px;color:#3B4558;font-size:15.6px;line-height:1.6}
 .poste .sous-titre{margin:0 0 10px;color:var(--gris);font-size:15px}
 .poste .secteurs{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .poste .secteurs span{font-size:12.5px;font-weight:600;background:var(--bleu-clair);color:var(--bleu-fonce);padding:3px 10px;border-radius:7px}
@@ -324,6 +326,7 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
   <ul>
         <li><a href="#projets">Projets</a></li>
     <li><a href="#parcours">Expérience</a></li>
+    <li><a href="#formation">Formation</a></li>
     <li><a href="#competences">Compétences</a></li>
   </ul>
   <a class="btn blanc" href="cv/CV_Helton_Dos_Santos_Moreira_Data_Analyst.pdf" download>Mon CV</a>
@@ -513,17 +516,34 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
   <h2 class="rv">Les chiffres, je les utilisais déjà</h2>
   <p class="intro rv">Avant la data, je prenais les décisions avec des tableaux de bord. C'est ce qui m'a amené à apprendre à les construire correctement.</p>
   <div class="parcours" id="frise"><div class="trait"></div>
-    <div class="poste rv"><div><div class="date">12/2025 · 12/2026</div><div class="lieu">OpenClassrooms</div></div><div><h3>Bachelor Data Analyst</h3><p class="sous-titre">Bac+3, titre RNCP de niveau 6 · formation professionnalisante par projets, accompagnée par un mentor du métier, chaque projet soutenu devant un évaluateur</p><ul>
-<li><b>Collecter, nettoyer et fiabiliser</b> des données : Python, Pandas, Power Query</li>
-<li><b>Interroger et modéliser</b> une base de données : SQL, schéma relationnel, dbt, Snowflake</li>
-<li><b>Construire des tableaux de bord</b> et suivre des indicateurs : Power BI, DAX, Excel</li>
-<li><b>Analyser et prévoir</b> : tests statistiques, séries temporelles (Prophet, SARIMA)</li>
-<li><b>Présenter des recommandations</b> à des décideurs : data storytelling, accessibilité des tableaux de bord</li>
+    <div class="poste rv"><div><div class="date">01/2022 · 09/2026</div><div class="lieu">Indépendant</div></div><div><h3>E-commerce et analyse de données</h3><ul>
+<li>Piloté <b>10 boutiques Shopify</b> en autonomie, du catalogue jusqu'à l'acquisition client</li>
+<li>Arbitré chaque semaine le budget Google, Meta et TikTok Ads sur le <b>ROAS</b> et le <b>coût d'acquisition (CAC)</b></li>
+<li>Ajusté les pages produits, les prix et le ciblage en suivant les indicateurs de <b>Google Analytics 4</b> : conversion, panier moyen, sources de trafic</li>
 </ul></div></div>
-    <div class="poste rv d1"><div><div class="date">01/2022 · 09/2026</div><div class="lieu">Indépendant</div></div><div><h3>E-commerce et analyse de données</h3><ul><li><b>Indicateurs suivis dans Google Analytics 4 et Shopify</b> : chiffre d'affaires, conversion, panier moyen, sources de trafic</li><li>Budget Google, Meta et TikTok Ads <b>arbitré chaque semaine sur le ROAS et le coût d'acquisition (CAC)</b></li>
-<li>Données clients analysées pour ajuster les pages produits, les prix et le ciblage</li><li>10 boutiques Shopify gérées en autonomie, du catalogue jusqu'à l'acquisition client</li></ul></div></div>
-    <div class="poste rv d2"><div><div class="date">09/2022 · 07/2024</div><div class="lieu">HUBSIDE STORE, Belle Épine</div></div><div><h3>Conseiller commercial, puis directeur adjoint</h3><ul><li><b>Tableau de bord hebdomadaire construit et automatisé</b> sous Excel : chiffre d'affaires, panier moyen, taux de transformation</li><li><b>Reporting mensuel</b> à la direction</li><li>8 vendeurs encadrés et suivis sur leurs indicateurs de performance</li></ul></div></div>
-    <div class="poste rv d3"><div><div class="date">06/2019 · 09/2022</div><div class="lieu">BRICOMAN, groupe ADEO</div></div><div><h3>Consultant technique principal</h3><ul><li><b>Données commerciales</b> d'un portefeuille de clients professionnels exploitées pour repérer les ventes croisées</li><li>Suivi des indicateurs de performance et <b>suivi analytique des cycles de chantiers</b>, 3 ans dans un groupe national</li></ul></div></div>
+    <div class="poste rv d1"><div><div class="date">09/2022 · 07/2024</div><div class="lieu">HUBSIDE STORE, Belle Épine</div></div><div><h3>Conseiller commercial, puis directeur adjoint</h3><ul>
+<li>Automatisé un <b>tableau de bord hebdomadaire</b> sous Excel : chiffre d'affaires, panier moyen, transformation</li>
+<li>Suivi <b>8 vendeurs</b> sur leurs indicateurs et présenté un <b>reporting mensuel</b> à la direction (écarts, plans d'action)</li>
+</ul></div></div>
+    <div class="poste rv d2"><div><div class="date">06/2019 · 09/2022</div><div class="lieu">BRICOMAN, groupe ADEO</div></div><div><h3>Consultant technique principal</h3><ul>
+<li>Détecté des opportunités de vente croisée en exploitant les <b>données commerciales</b> d'un portefeuille B2B du BTP</li>
+<li>Adapté le suivi des clients professionnels aux <b>cycles de chantier</b></li>
+</ul></div></div>
+  </div>
+</section>
+
+<section id="formation">
+  <p class="surtitre rv">Formation</p>
+  <h2 class="rv">Diplômes et certifications</h2>
+  <div class="formation">
+    <div class="poste rv"><div><div class="date">12/2025 · 12/2026</div><div class="lieu">OpenClassrooms</div></div><div><h3>Bachelor Data Analyst</h3><p class="sous-titre">Bac+3, titre RNCP de niveau 6</p>
+<p class="texte">Une année construite autour de treize missions tirées de cas d'entreprise. Chaque mission part d'un besoin métier et se termine par un livrable : tableau de bord, analyse, pipeline ou recommandation. Un mentor du métier suit chaque projet, et chacun est soutenu à l'oral devant un évaluateur, comme une restitution devant un client.</p><ul>
+<li><b>Collecter, nettoyer et fiabiliser</b> des données : Python, Pandas, Power Query</li>
+<li><b>Interroger et modéliser</b> une base de données : SQL, dbt, Snowflake</li>
+<li><b>Construire des tableaux de bord</b> et suivre des indicateurs : Power BI, DAX, Excel</li>
+<li><b>Analyser et prévoir</b> : tests statistiques, séries temporelles</li>
+<li><b>Présenter des recommandations</b> à des décideurs : data storytelling, accessibilité</li>
+</ul></div></div>
   </div>
 </section>
 
