@@ -6,7 +6,7 @@
 <title>Helton Dos Santos Moreira · Data Analyst Power BI, SQL, Python · Île-de-France</title>
 <meta name="description" content="Data Analyst en Île-de-France : je résous des problèmes métier avec les données. Tableaux de bord Power BI, SQL, Python, KPI, reporting et qualité des données, pour aider une direction à décider.">
 <meta property="og:title" content="Helton Dos Santos Moreira · Data Analyst">
-<meta property="og:description" content="Je résous des problèmes métier avec les données : Power BI, SQL, Python, KPI et reporting. Cinq études de cas, du problème à la décision.">
+<meta property="og:description" content="Je résous des problèmes métier avec les données : Power BI, SQL, Python, KPI et reporting. Des études de cas, du problème à la décision.">
 <meta property="og:type" content="profile">
 <meta property="og:image" content="https://heltondsm.github.io/img/apercu-portfolio.jpg">
 <meta property="og:url" content="https://heltondsm.github.io/">
@@ -28,6 +28,13 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--fond);color:var(--texte);font-family:var(--ui);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
+.flux{display:grid;gap:10px}
+.flux .etage{border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.05)}
+.flux .etage b{display:block;color:#fff;font-size:15px;margin-bottom:4px}
+.flux .etage span{color:#C9D6E8;font-size:13.5px;line-height:1.5}
+.flux .etage.ia{border-color:var(--bleu-ciel);background:rgba(120,170,230,.14)}
+.flux .etage.moi{background:#fff;border-color:#fff}.flux .etage.moi b{color:var(--marine)}.flux .etage.moi span{color:#2B3446}
+.flux .fleche{text-align:center;color:var(--bleu-ciel);font-size:18px;line-height:1}
 .formation .sous-titre a{color:var(--bleu-fonce);text-decoration:underline;text-underline-offset:2px}
 img{max-width:100%}
 .page{max-width:1200px;margin:0 auto;padding:0 28px}
@@ -223,7 +230,7 @@ h2{font-family:var(--titre);font-size:clamp(32px,4vw,48px);line-height:1.1;margi
 .poste li b{color:var(--marine);font-weight:600}
 
 /* compétences */
-.competences{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.competences{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .bloc{background:#fff;border:1px solid var(--ligne);border-radius:18px;padding:24px}
 .bloc h3{font-family:var(--titre);font-size:16px;margin:0 0 14px;color:var(--marine)}
 .puces{display:flex;flex-wrap:wrap;gap:8px}
@@ -318,7 +325,7 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
 @media (max-width:980px){.bach-comp{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.legende{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Helton Dos Santos Moreira", "jobTitle": "Data Analyst", "address": {"@type": "PostalAddress", "addressRegion": "Île-de-France", "addressCountry": "FR"}, "email": "mailto:heltonmail8@gmail.com", "url": "https://github.com/Heltondsm", "sameAs": ["https://www.linkedin.com/in/helton-dsm-data", "https://github.com/Heltondsm"], "knowsAbout": ["Analyse de données", "Power BI", "DAX", "Power Query", "SQL", "Python", "Pandas", "Excel", "KPI", "Reporting", "Tableaux de bord", "Data visualisation", "Modélisation des données", "Qualité des données", "Statistiques", "Séries temporelles", "dbt", "Aide à la décision"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Helton Dos Santos Moreira", "jobTitle": "Data Analyst", "address": {"@type": "PostalAddress", "addressRegion": "Île-de-France", "addressCountry": "FR"}, "email": "mailto:heltonmail8@gmail.com", "url": "https://github.com/Heltondsm", "sameAs": ["https://www.linkedin.com/in/helton-dsm-data", "https://github.com/Heltondsm"], "knowsAbout": ["Analyse de données", "Power BI", "DAX", "Power Query", "SQL", "Python", "Pandas", "Excel", "KPI", "Reporting", "Tableaux de bord", "Data visualisation", "Modélisation des données", "Qualité des données", "Statistiques", "Séries temporelles", "dbt", "Aide à la décision", "Dataiku", "PostgreSQL", "IA générative", "Claude Code", "Automatisation"], "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": "Dataiku Advanced Designer", "url": "https://verify.skilljar.com/c/o7rjekahawpj"}, {"@type": "EducationalOccupationalCredential", "name": "Dataiku Core Designer", "url": "https://verify.skilljar.com/c/nokssj7tigr5"}]}</script>
 </head>
 <body>
 
@@ -326,6 +333,7 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
   <a class="marque" href="#"><img src="img/helton.jpg" alt=""><span>Helton Dos Santos Moreira</span></a>
   <ul>
         <li><a href="#projets">Projets</a></li>
+    <li><a href="#ia">IA</a></li>
     <li><a href="#parcours">Expérience</a></li>
     <li><a href="#formation">Formation</a></li>
     <li><a href="#certifications">Certifications</a></li>
@@ -354,8 +362,8 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
 </header>
 
 <div class="bande" aria-hidden="true"><div class="piste">
-  <span>Power BI</span><i>●</i><span>DAX</span><i>●</i><span>Power Query</span><i>●</i><span>SQL</span><i>●</i><span>Python</span><i>●</i><span>Pandas</span><i>●</i><span>Excel</span><i>●</i><span>Statistiques</span><i>●</i><span>dbt</span><i>●</i><span>Dataiku</span><i>●</i><span>Git</span><i>●</i>
-  <span>Power BI</span><i>●</i><span>DAX</span><i>●</i><span>Power Query</span><i>●</i><span>SQL</span><i>●</i><span>Python</span><i>●</i><span>Pandas</span><i>●</i><span>Excel</span><i>●</i><span>Statistiques</span><i>●</i><span>dbt</span><i>●</i><span>Dataiku</span><i>●</i><span>Git</span><i>●</i>
+  <span>Power BI</span><i>●</i><span>DAX</span><i>●</i><span>Power Query</span><i>●</i><span>SQL</span><i>●</i><span>Python</span><i>●</i><span>Pandas</span><i>●</i><span>Excel</span><i>●</i><span>Statistiques</span><i>●</i><span>dbt</span><i>●</i><span>Dataiku</span><i>●</i><span>IA générative</span><i>●</i><span>Git</span><i>●</i>
+  <span>Power BI</span><i>●</i><span>DAX</span><i>●</i><span>Power Query</span><i>●</i><span>SQL</span><i>●</i><span>Python</span><i>●</i><span>Pandas</span><i>●</i><span>Excel</span><i>●</i><span>Statistiques</span><i>●</i><span>dbt</span><i>●</i><span>Dataiku</span><i>●</i><span>IA générative</span><i>●</i><span>Git</span><i>●</i>
 </div></div>
 
 <main class="page">
@@ -513,6 +521,47 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
   </div>
 </section>
 
+<section id="ia">
+  <p class="surtitre rv">IA appliquée</p>
+  <h2 class="rv">L'IA dans ma façon de travailler</h2>
+  <p class="intro rv">J'utilise chaque jour un agent IA (Claude Code). Je décris le processus, je fixe les règles et je vérifie chaque résultat : l'IA exécute, je pilote.</p>
+<article class="etude vedette rv">
+    <div class="haut">
+      <div>
+        <span class="tag">IA · AUTOMATISATION · POSTGRESQL</span>
+        <h3>Ma recherche d'emploi, pilotée comme un projet data</h3>
+        <p class="etape-titre">Contexte et enjeu</p>
+        <p class="question">Plus de 120 candidatures et contacts, des offres sur plusieurs sites, des réponses par mail et sur LinkedIn : à la main, une relance finit toujours par se perdre.</p>
+        <p class="etape-titre">Démarche</p>
+        <ul class="points">
+          <li>Une base <b>PostgreSQL</b> unique, alimentée par l'<b>API LinkedIn</b>, Gmail et les sites d'offres</li>
+          <li>Ce qui est prévisible en <b>code Python</b> planifié (GitHub Actions) : relevé LinkedIn, suivi des publications</li>
+          <li>L'IA seulement là où il faut <b>comprendre du texte</b> : noter une offre, trier une réponse, préparer un entretien</li>
+          <li>Une application de pilotage : pipeline, carte des entreprises, recherche globale. Rien ne part sans ma relecture</li>
+        </ul>
+      </div>
+      <div class="visuel">
+        <div class="flux" role="img" aria-label="Schéma : des sources de données vers une base PostgreSQL, puis des agents IA, puis ma validation">
+          <div class="etage"><b>Sources</b><span>API LinkedIn · Gmail · Indeed · LinkedIn et Welcome to the Jungle</span></div>
+          <div class="fleche">↓</div>
+          <div class="etage"><b>Code planifié</b><span>Python et GitHub Actions : collecte, rapprochement, alertes</span></div>
+          <div class="fleche">↓</div>
+          <div class="etage"><b>Base PostgreSQL</b><span>Candidatures, offres, messages et historique de chaque action</span></div>
+          <div class="fleche">↓</div>
+          <div class="etage ia"><b>Agents IA (Claude)</b><span>Lire, noter sur 100, rédiger les relances et les dossiers d'entretien</span></div>
+          <div class="fleche">↓</div>
+          <div class="etage moi"><b>Moi</b><span>Je relis, j'ajuste et j'envoie. Je mesure ce qui marche chaque semaine</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="resultat">
+      <span class="etiquette">RÉSULTATS</span>
+      <p><b>Chaque matin, un plan d'action prêt</b> : les offres du jour notées sur mon profil, les relances déjà rédigées et les réponses rattachées à la bonne fiche. 126 candidatures et contacts suivis, 2 168 relations LinkedIn analysées.</p>
+      <div class="liens"><div class="outils"><span>Claude Code</span><span>Python</span><span>PostgreSQL</span><span>GitHub Actions</span><span>API REST</span></div></div>
+    </div>
+  </article>
+</section>
+
 <section id="parcours">
   <p class="surtitre rv">Expérience</p>
   <h2 class="rv">Les chiffres, je les utilisais déjà</h2>
@@ -566,8 +615,10 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
     <div class="bloc rv"><h3>Visualisation</h3><div class="puces"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Sécurité par ligne</span><span>Matplotlib</span><span>Plotly</span></div></div>
     <div class="bloc rv d1"><h3>Analyse</h3><div class="puces"><span>SQL</span><span>Python</span><span>Pandas</span><span>Excel</span><span>Google Analytics 4</span></div></div>
     <div class="bloc rv d2"><h3>Statistiques</h3><div class="puces"><span>Tests d'hypothèses</span><span>Corrélations</span><span>SARIMA</span><span>Prophet</span></div></div>
-    <div class="bloc rv d3"><h3>Données</h3><div class="puces"><span>dbt</span><span>Snowflake</span><span>DuckDB</span><span>API REST</span><span>Git</span></div></div>
+    <div class="bloc rv d3"><h3>Données</h3><div class="puces"><span>dbt</span><span>Snowflake</span><span>DuckDB</span><span>PostgreSQL</span><span>Git</span></div></div>
     <div class="bloc rv"><h3>Méthodes</h3><div class="puces"><span>KPI et reporting</span><span>Qualité des données</span><span>Modélisation</span><span>Data storytelling</span><span>Aide à la décision</span></div></div>
+    <div class="bloc rv d1"><h3>IA et automatisation</h3><div class="puces"><span>Claude Code</span><span>Agents IA</span><span>API REST</span><span>GitHub Actions</span><span>Dataiku</span></div></div>
+    <div class="bloc rv d2"><h3>Langues</h3><div class="puces"><span>Français</span><span>Anglais B2</span><span>Kriolo cap-verdien</span></div></div>
   </div>
 </section>
 
