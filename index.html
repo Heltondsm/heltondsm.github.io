@@ -35,6 +35,8 @@ a{color:inherit}
 .flux .etage.ia{border-color:var(--bleu-ciel);background:rgba(120,170,230,.14)}
 .flux .etage.moi{background:#fff;border-color:#fff}.flux .etage.moi b{color:var(--marine)}.flux .etage.moi span{color:#2B3446}
 .flux .fleche{text-align:center;color:var(--bleu-ciel);font-size:18px;line-height:1}
+.flux .duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:640px){.flux .duo{grid-template-columns:1fr}}
 .formation .sous-titre a{color:var(--bleu-fonce);text-decoration:underline;text-underline-offset:2px}
 img{max-width:100%}
 .page{max-width:1200px;margin:0 auto;padding:0 28px}
@@ -390,14 +392,15 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
         </ul>
       </div>
       <div class="visuel">
-        <div class="flux" role="img" aria-label="Schéma : des sources de données vers une base PostgreSQL, puis des agents IA, puis ma validation">
-          <div class="etage"><b>Sources</b><span>API LinkedIn · Gmail · annuaire des entreprises · sites publics</span></div>
+        <div class="flux" role="img" aria-label="Schéma : le code planifié et les agents IA alimentent une base PostgreSQL, lue dans une application de pilotage, puis je décide">
+          <div class="duo">
+            <div class="etage"><b>Code planifié</b><span>Python et GitHub Actions. Lit l'API LinkedIn et l'annuaire des entreprises, rapproche les données, envoie les alertes</span></div>
+            <div class="etage ia"><b>9 agents IA (Claude)</b><span>Lisent les mails et les sites publics, notent les opportunités, trient les mails, préparent les relances</span></div>
+          </div>
+          <div class="duo"><div class="fleche">↓</div><div class="fleche">↓</div></div>
+          <div class="etage"><b>Base PostgreSQL</b><span>Tout arrive ici : entreprises, contacts, opportunités, messages et historique de chaque action</span></div>
           <div class="fleche">↓</div>
-          <div class="etage"><b>Code planifié</b><span>Python et GitHub Actions : collecte, rapprochement, alertes</span></div>
-          <div class="fleche">↓</div>
-          <div class="etage"><b>Base PostgreSQL</b><span>Entreprises, contacts, opportunités, messages et historique de chaque action</span></div>
-          <div class="fleche">↓</div>
-          <div class="etage ia"><b>9 agents IA spécialisés (Claude)</b><span>Noter les opportunités, trier les mails, préparer les relances et les rendez-vous</span></div>
+          <div class="etage"><b>Application de pilotage</b><span>Pipeline, carte des entreprises, recherche globale, indicateurs de la semaine</span></div>
           <div class="fleche">↓</div>
           <div class="etage moi"><b>Moi</b><span>J'analyse, je décide et j'écris. Je mesure ce qui marche chaque semaine</span></div>
         </div>
