@@ -529,15 +529,15 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
     <div class="haut">
       <div>
         <span class="tag">IA · AUTOMATISATION · POSTGRESQL</span>
-        <h3>Ma recherche d'emploi, pilotée comme un projet data</h3>
+        <h3>Un CRM data alimenté par des API et piloté avec un agent IA</h3>
         <p class="etape-titre">Contexte et enjeu</p>
-        <p class="question">Plus de 120 candidatures et contacts, des offres sur plusieurs sites, des réponses par mail et sur LinkedIn : à la main, une relance finit toujours par se perdre.</p>
+        <p class="question">Suivre plus de 120 entreprises et contacts du secteur data, et des dizaines d'offres publiées chaque jour sur plusieurs sites : sans outil, l'information se disperse et les décisions se prennent à l'aveugle.</p>
         <p class="etape-titre">Démarche</p>
         <ul class="points">
           <li>Une base <b>PostgreSQL</b> unique, alimentée par l'<b>API LinkedIn</b>, Gmail et les sites d'offres</li>
-          <li>Ce qui est prévisible en <b>code Python</b> planifié (GitHub Actions) : relevé LinkedIn, suivi des publications</li>
-          <li>L'IA seulement là où il faut <b>comprendre du texte</b> : noter une offre, trier une réponse, préparer un entretien</li>
-          <li>Une application de pilotage : pipeline, carte des entreprises, recherche globale. Rien ne part sans ma relecture</li>
+          <li>Ce qui est prévisible en <b>code Python</b> planifié (GitHub Actions) : collecte, rapprochement des données, alertes</li>
+          <li>L'IA seulement là où il faut <b>comprendre du texte</b> : lire une offre et la noter sur 100, classer un message reçu</li>
+          <li>Une application de pilotage : pipeline, <b>carte des entreprises</b>, recherche globale et indicateurs de la semaine</li>
         </ul>
       </div>
       <div class="visuel">
@@ -548,15 +548,15 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
           <div class="fleche">↓</div>
           <div class="etage"><b>Base PostgreSQL</b><span>Candidatures, offres, messages et historique de chaque action</span></div>
           <div class="fleche">↓</div>
-          <div class="etage ia"><b>Agents IA (Claude)</b><span>Lire, noter sur 100, rédiger les relances et les dossiers d'entretien</span></div>
+          <div class="etage ia"><b>Agents IA (Claude)</b><span>Lire chaque offre, la noter sur 100, classer les messages reçus</span></div>
           <div class="fleche">↓</div>
-          <div class="etage moi"><b>Moi</b><span>Je relis, j'ajuste et j'envoie. Je mesure ce qui marche chaque semaine</span></div>
+          <div class="etage moi"><b>Moi</b><span>J'analyse, je décide et j'écris. Je mesure ce qui marche chaque semaine</span></div>
         </div>
       </div>
     </div>
     <div class="resultat">
       <span class="etiquette">RÉSULTATS</span>
-      <p><b>Chaque matin, un plan d'action prêt</b> : les offres du jour notées sur mon profil, les relances déjà rédigées et les réponses rattachées à la bonne fiche. 126 candidatures et contacts suivis, 2 168 relations LinkedIn analysées.</p>
+      <p><b>Une vue claire chaque matin</b> : les offres du jour classées par pertinence, les entreprises sur une carte et chaque échange rattaché à sa fiche. Plus de 120 entreprises et contacts suivis, 2 168 relations LinkedIn analysées.</p>
       <div class="liens"><div class="outils"><span>Claude Code</span><span>Python</span><span>PostgreSQL</span><span>GitHub Actions</span><span>API REST</span></div></div>
     </div>
   </article>
@@ -602,8 +602,8 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
   <p class="surtitre rv">Certifications</p>
   <h2 class="rv">Certifications</h2>
   <div class="formation">
-    <div class="poste rv"><div><div class="date">10/2026</div><div class="lieu">Dataiku</div></div><div><h3>Dataiku Advanced Designer et Core Designer</h3><p class="sous-titre">Certifications Dataiku obtenues en octobre 2026 · <a href="https://verify.skilljar.com/c/o7rjekahawpj">vérifier l'Advanced Designer</a> · <a href="https://verify.skilljar.com/c/nokssj7tigr5">vérifier la Core Designer</a></p></div></div>
-    <div class="poste rv d1"><div><div class="date">10/2026</div><div class="lieu">Microsoft</div></div><div><h3>PL-300 Power BI Data Analyst</h3><p class="sous-titre">Certification Microsoft, en cours (octobre 2026)</p></div></div>
+    <div class="poste rv"><div><div class="lieu">Dataiku</div></div><div><h3>Dataiku Advanced Designer et Core Designer</h3><p class="sous-titre">Certifications Dataiku · <a href="https://verify.skilljar.com/c/o7rjekahawpj">vérifier l'Advanced Designer</a> · <a href="https://verify.skilljar.com/c/nokssj7tigr5">vérifier la Core Designer</a></p></div></div>
+    <div class="poste rv d1"><div><div class="lieu">Microsoft</div></div><div><h3>PL-300 Power BI Data Analyst</h3><p class="sous-titre">Certification Microsoft, en cours</p></div></div>
   </div>
 </section>
 
@@ -654,7 +654,7 @@ function surDefilement(){
 }
 addEventListener('scroll',surDefilement,{passive:true});surDefilement();
 
-const mots=['Power BI','SQL','Python','Excel'];let im=0;
+const mots=['Power BI','IA générative','SQL','Python','Excel'];let im=0;
 const tourne=document.getElementById('tourne');
 if(!calme) setInterval(()=>{
   tourne.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-8px)'}],{duration:250,fill:'forwards'}).onfinish=()=>{
