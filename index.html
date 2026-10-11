@@ -380,10 +380,10 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
         <span class="badge">NOUVEAU</span><span class="tag">IA AGENTIQUE · AUTOMATISATION · POSTGRESQL</span>
         <h3>CRM data et agents IA : centraliser offres, contacts et échanges</h3>
         <p class="etape-titre">Contexte et enjeu</p>
-        <p class="question">J'ai d'abord mesuré le marché : 787 offres et 1&nbsp;135 entreprises collectées via les API France Travail et INSEE Sirene. Restait à exploiter ces données au quotidien : plus de 120 entreprises et contacts à suivre, des dizaines d'offres par jour sur plusieurs sites. Sans outil, l'information se disperse.</p>
+        <p class="question">Plus de 120 entreprises et contacts à suivre, des dizaines d'opportunités par jour sur plusieurs sites, des échanges sur LinkedIn et par mail : sans outil, l'information se disperse. Ce projet prolonge un premier pipeline de collecte par API (1&nbsp;135 entreprises via France Travail et INSEE Sirene).</p>
         <p class="etape-titre">Démarche</p>
         <ul class="points">
-          <li>Une base <b>PostgreSQL</b> unique, alimentée par l'<b>API LinkedIn</b>, Gmail et les sites d'offres</li>
+          <li>Une base <b>PostgreSQL</b> unique, alimentée par l'<b>API LinkedIn</b>, Gmail et des sites publics</li>
           <li>Ce qui est prévisible en <b>code Python</b> planifié (GitHub Actions) : collecte, rapprochement des données, alertes</li>
           <li><b>9 agents IA</b> planifiés, chacun avec un rôle, des règles écrites et un journal : l'IA seulement là où il faut <b>comprendre du texte</b></li>
           <li>Une application de pilotage : pipeline, <b>carte des entreprises</b>, recherche globale et indicateurs de la semaine</li>
@@ -391,13 +391,13 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
       </div>
       <div class="visuel">
         <div class="flux" role="img" aria-label="Schéma : des sources de données vers une base PostgreSQL, puis des agents IA, puis ma validation">
-          <div class="etage"><b>Sources</b><span>API LinkedIn · Gmail · Indeed · LinkedIn et Welcome to the Jungle</span></div>
+          <div class="etage"><b>Sources</b><span>API LinkedIn · Gmail · annuaire des entreprises · sites publics</span></div>
           <div class="fleche">↓</div>
           <div class="etage"><b>Code planifié</b><span>Python et GitHub Actions : collecte, rapprochement, alertes</span></div>
           <div class="fleche">↓</div>
-          <div class="etage"><b>Base PostgreSQL</b><span>Entreprises, contacts, offres, messages et historique de chaque action</span></div>
+          <div class="etage"><b>Base PostgreSQL</b><span>Entreprises, contacts, opportunités, messages et historique de chaque action</span></div>
           <div class="fleche">↓</div>
-          <div class="etage ia"><b>9 agents IA spécialisés (Claude)</b><span>Noter les offres, trier les mails, préparer les relances et les rendez-vous</span></div>
+          <div class="etage ia"><b>9 agents IA spécialisés (Claude)</b><span>Noter les opportunités, trier les mails, préparer les relances et les rendez-vous</span></div>
           <div class="fleche">↓</div>
           <div class="etage moi"><b>Moi</b><span>J'analyse, je décide et j'écris. Je mesure ce qui marche chaque semaine</span></div>
         </div>
@@ -405,7 +405,7 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
     </div>
     <div class="resultat">
       <span class="etiquette">RÉSULTATS</span>
-      <p><b>Une vue claire chaque matin</b> : les offres du jour classées par pertinence, les entreprises sur une carte et chaque échange rattaché à sa fiche. Le tout testé automatiquement à chaque modification (CI/CD).</p>
+      <p><b>Une vue claire chaque matin</b> : les opportunités du jour classées par pertinence, les entreprises sur une carte et chaque échange rattaché à sa fiche. Le tout testé automatiquement à chaque modification (CI/CD).</p>
       <div class="liens"><div class="outils"><span>Claude Code</span><span>Python</span><span>PostgreSQL</span><span>GitHub Actions</span><span>API REST</span></div><a class="lien" href="https://github.com/Heltondsm/crm-data-agents-ia">Voir le projet <span>→</span></a></div>
     </div>
   </article>
