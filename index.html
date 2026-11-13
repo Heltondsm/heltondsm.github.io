@@ -430,11 +430,42 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
 <section id="projets">
   <p class="surtitre rv">Projets</p>
   <h2 class="rv">Des problèmes métier, des résultats mesurables</h2>
-  <p class="intro rv">Piloter avec des indicateurs, fiabiliser les données, construire un reporting SQL, prévoir&nbsp;: un projet phare pour chaque besoin d'une direction, en Power BI, Python et SQL.</p>
+  <p class="intro rv">Piloter avec des indicateurs, fiabiliser les données, construire un reporting SQL, prévoir&nbsp;: un projet phare pour chaque besoin d'une direction, en Power BI, Python, SQL et sur Google Cloud.</p>
 <article class="etude vedette rv">
     <div class="haut">
       <div>
-        <span class="badge">PROJET PHARE</span><span class="tag">POWER BI · KPI · REPORTING DE DIRECTION</span>
+        <span class="badge">PROJET PHARE</span><span class="tag">AIRFLOW · DBT · BIGQUERY (GCP) · POWER BI</span>
+        <h3>Pilotage financier d'une PME : trésorerie, impayés et comparaison au secteur</h3>
+        <p class="etape-titre">Contexte et enjeu</p>
+        <p class="question">Le directeur financier d'un grossiste en matériaux pilote avec des exports Excel refaits chaque mois. Il découvre trop tard les clients en difficulté, ne sait pas combien il aura en banque dans 90 jours, ni s'il fait mieux que ses concurrents.</p>
+        <p class="etape-titre">Démarche</p>
+        <ul class="points">
+          <li>Une chaîne <b>Airflow</b> qui, chaque nuit, collecte les annonces légales du <b>Bodacc</b>, charge les données dans <b>BigQuery</b> (Google Cloud) et recalcule tout avec <b>dbt</b></li>
+          <li><b>72 contrôles dbt</b> : doublons, clés, calage sur le secteur, aucun SIREN exposé ; 6,8 millions de bilans publics pour comparer l'entreprise à ses concurrents</li>
+          <li>Un tableau de bord <b>Power BI de 7 pages</b> pour le DAF, dont les 15 chiffres clés ont été recontrôlés un par un en SQL dans BigQuery</li>
+        </ul>
+      </div>
+      <figure class="galerie visuel" style="margin:0">
+        <div class="ecran">
+          <img loading="lazy" decoding="async" class="actif" src="img/pme-tresorerie.jpg" alt="Trésorerie : solde réel, prévision à 90 jours et semaines à risque" data-legende="Trésorerie : la prévision à 90 jours">
+          <img loading="lazy" decoding="async" src="img/pme-alertes.jpg" alt="Les clients à surveiller et l'action à mener" data-legende="Alertes : 38 clients en procédure">
+          <img loading="lazy" decoding="async" src="img/pme-secteur.jpg" alt="L'entreprise comparée à ses 134 concurrents" data-legende="Face au secteur : 134 concurrents">
+          <img loading="lazy" decoding="async" src="img/pme-diagnostic.jpg" alt="Diagnostic des comptes d'une entreprise choisie" data-legende="Diagnostic d'une entreprise">
+          <img loading="lazy" decoding="async" src="img/pme-chaine.jpg" alt="Sources, nettoyage et chaîne de données Airflow, BigQuery, dbt" data-legende="La chaîne : Airflow, BigQuery, dbt">
+        </div>
+        <figcaption class="legende"><span class="texte-legende"></span><span class="points-g"></span></figcaption>
+      </figure>
+    </div>
+    <div class="resultat">
+      <span class="etiquette">RÉSULTATS</span>
+      <p><b>La prévision de trésorerie tombe à 4,8&nbsp;% du solde réel à 30&nbsp;jours</b> (vérifiée sur 5 dates passées), et <b>38 clients en procédure collective</b> sont signalés chaque matin avec l'action à mener. L'entreprise progresse de 1,2&nbsp;% quand son secteur recule de 3,5&nbsp;%.</p>
+      <div class="liens"><div class="outils"><span>Airflow</span><span>dbt</span><span>BigQuery</span><span>Power BI</span></div><a class="lien" href="https://github.com/Heltondsm/pilotage-financier-pme">Voir le projet <span>→</span></a></div>
+    </div>
+  </article>
+<article class="etude rv">
+    <div class="haut">
+      <div>
+        <span class="tag">POWER BI · KPI · REPORTING DE DIRECTION</span>
         <h3>Pilotage d'un portefeuille de 104 projets : détection des dérives et sécurité des accès</h3>
         <p class="etape-titre">Contexte et enjeu</p>
         <p class="question">Un groupe international pilote 104 projets IT et Marketing dans 52 pays. Les données existent, mais aucun outil ne permet de suivre les écarts de coûts, de délais et de livrables, ni de restreindre chaque direction à son périmètre.</p>
@@ -610,7 +641,7 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
     <div class="poste rv"><div><div class="date">12/2025 · 12/2026</div><div class="lieu">OpenClassrooms</div></div><div><h3>Bachelor Data Analyst</h3><p class="sous-titre">Bac+3, titre RNCP de niveau 6</p>
 <p class="texte">Une année construite autour de treize missions tirées de cas d'entreprise. Chaque mission part d'un besoin métier et se termine par un livrable : tableau de bord, analyse, pipeline ou recommandation. Un mentor du métier suit chaque projet, et chacun est soutenu à l'oral devant un évaluateur, comme une restitution devant un client.</p><ul>
 <li><b>Collecter, nettoyer et fiabiliser</b> des données : Python, Pandas, Power Query</li>
-<li><b>Interroger et modéliser</b> une base de données : SQL, dbt, Snowflake</li>
+<li><b>Interroger et modéliser</b> une base de données : SQL, dbt, Snowflake, BigQuery</li>
 <li><b>Construire des tableaux de bord</b> et suivre des indicateurs : Power BI, DAX, Excel</li>
 <li><b>Analyser et prévoir</b> : tests statistiques, séries temporelles</li>
 <li><b>Présenter des recommandations</b> à des décideurs : data storytelling, accessibilité</li>
@@ -634,7 +665,7 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
     <div class="bloc rv"><h3>Data visualisation</h3><div class="puces"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Sécurité par ligne</span><span>Matplotlib</span><span>Plotly</span></div></div>
     <div class="bloc rv d1"><h3>Analyse</h3><div class="puces"><span>SQL</span><span>Python</span><span>Pandas</span><span>Excel</span><span>Google Analytics 4</span></div></div>
     <div class="bloc rv d2"><h3>Statistiques et apprentissage</h3><div class="puces"><span>Tests d'hypothèses</span><span>Corrélations</span><span>ACP</span><span>Clustering</span><span>Machine learning non supervisé</span><span>SARIMA</span><span>Prophet</span></div></div>
-    <div class="bloc rv d3"><h3>Données et cloud</h3><div class="puces"><span>dbt</span><span>Snowflake (cloud)</span><span>DuckDB</span><span>PostgreSQL</span><span>Git</span></div></div>
+    <div class="bloc rv d3"><h3>Données et cloud</h3><div class="puces"><span>BigQuery (Google Cloud)</span><span>Airflow</span><span>dbt</span><span>Snowflake (cloud)</span><span>DuckDB</span><span>PostgreSQL</span><span>Git</span></div></div>
     <div class="bloc rv"><h3>Méthodes</h3><div class="puces"><span>KPI et reporting</span><span>Qualité des données</span><span>Modélisation des données</span><span>Documentation</span><span>Restitution à un public non technique</span><span>Suivi budgétaire</span><span>Data storytelling</span><span>Aide à la décision</span></div></div>
     <div class="bloc rv d1"><h3>IA et automatisation</h3><div class="puces"><span>Claude Code</span><span>Agents IA</span><span>API REST</span><span>GitHub Actions</span><span>Dataiku</span></div></div>
     <div class="bloc rv d2"><h3>Langues</h3><div class="puces"><span>Français</span><span>Anglais B2</span><span>Créole cap-verdien</span></div></div>
