@@ -700,7 +700,7 @@ function surDefilement(){
 }
 addEventListener('scroll',surDefilement,{passive:true});surDefilement();
 
-const mots=['Power BI','SQL','Python','BigQuery (GCP)','IA agentique','dbt','Airflow','Dataiku','Excel'];let im=0;
+const mots=['Power BI','SQL','Python','BigQuery (GCP)','IA agentique','Excel'];let im=0;
 const tourne=document.getElementById('tourne');
 if(!calme) setInterval(()=>{
   tourne.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-8px)'}],{duration:250,fill:'forwards'}).onfinish=()=>{
