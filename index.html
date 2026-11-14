@@ -403,12 +403,14 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
           <li>Une chaîne <b>Airflow</b> qui, chaque nuit, collecte les annonces légales du <b>Bodacc</b>, charge les données dans <b>BigQuery</b> (Google Cloud) et recalcule tout avec <b>dbt</b></li>
           <li><b>72 contrôles dbt</b> : doublons, clés, calage sur le secteur, aucun SIREN exposé ; 6,8 millions de bilans publics pour comparer l'entreprise à ses concurrents</li>
           <li>Un tableau de bord <b>Power BI de 7 pages</b> pour le DAF, dont les 15 chiffres clés ont été recontrôlés un par un en SQL dans BigQuery</li>
+          <li>Un <b>assistant IA</b> (Gemini) qui répond au DAF en français en écrivant lui-même la requête SQL, encadré par un dictionnaire métier et des garde-fous, <b>testé 48 fois sans erreur</b></li>
         </ul>
       </div>
       <figure class="galerie visuel" style="margin:0">
         <div class="ecran">
           <img loading="lazy" decoding="async" class="actif" src="img/pme-tresorerie.jpg" alt="Trésorerie : solde réel, prévision à 90 jours et semaines à risque" data-legende="Trésorerie : la prévision à 90 jours">
           <img loading="lazy" decoding="async" src="img/pme-alertes.jpg" alt="Les clients à surveiller et l'action à mener" data-legende="Alertes : 38 clients en procédure">
+          <img loading="lazy" decoding="async" src="img/pme-assistant.jpg" alt="L'assistant IA répond au DAF avec les chiffres et la requête SQL" data-legende="Assistant IA : 48 réponses justes sur 48">
           <img loading="lazy" decoding="async" src="img/pme-secteur.jpg" alt="L'entreprise comparée à ses 134 concurrents" data-legende="Face au secteur : 134 concurrents">
           <img loading="lazy" decoding="async" src="img/pme-diagnostic.jpg" alt="Diagnostic des comptes d'une entreprise choisie" data-legende="Diagnostic d'une entreprise">
           <img loading="lazy" decoding="async" src="img/pme-chaine.jpg" alt="Sources, nettoyage et chaîne de données Airflow, BigQuery, dbt" data-legende="La chaîne : Airflow, BigQuery, dbt">
@@ -418,8 +420,8 @@ h2,.etude h3,.carte h3,.poste h3,.pipe h3,.petit h3,.bloc h3{letter-spacing:-.01
     </div>
     <div class="resultat">
       <span class="etiquette">RÉSULTATS</span>
-      <p><b>Le DAF anticipe sa trésorerie à 90&nbsp;jours à 4,8&nbsp;% près</b> (vérifié sur 5 dates passées) et <b>repère chaque matin 263&nbsp;K€ de créances à risque</b> chez 38 clients en procédure collective, grâce à une chaîne Airflow, dbt et BigQuery recalculée chaque nuit et un tableau de bord Power BI de 7 pages.</p>
-      <div class="liens"><div class="outils"><span>Airflow</span><span>dbt</span><span>BigQuery</span><span>Power BI</span></div><a class="lien" href="https://github.com/Heltondsm/pilotage-financier-pme">Voir le projet <span>→</span></a></div>
+      <p><b>Le DAF anticipe sa trésorerie à 90&nbsp;jours à 4,8&nbsp;% près</b> (vérifié sur 5 dates passées) et <b>repère chaque matin 263&nbsp;K€ de créances à risque</b> chez 38 clients en procédure collective, grâce à une chaîne Airflow, dbt et BigQuery recalculée chaque nuit et un tableau de bord Power BI de 7 pages. <b>Un assistant IA lui répond en quelques secondes</b>, fiable à 48 réponses justes sur 48 aux tests.</p>
+      <div class="liens"><div class="outils"><span>Airflow</span><span>dbt</span><span>BigQuery</span><span>Power BI</span><span>IA (Gemini)</span></div><a class="lien" href="https://github.com/Heltondsm/pilotage-financier-pme">Voir le projet <span>→</span></a></div>
     </div>
   </article>
 <article class="etude rv">
